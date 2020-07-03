@@ -53,7 +53,6 @@
 		}
 		
 		var pwdval = f.pwd.value;
-		var pwdcheck = f.pwdcheck.value;
 		pwdval = trim(pwdval);
 		if(pwdval.length == 0){
 			alert("비밀번호를 입력하세요.");
@@ -67,6 +66,15 @@
 				f.pwd.focus();
 				return false;
 			}
+		}
+		
+		var pwdcheck = f.pwdcheck.value;
+		pwdcheck = trim(pwdcheck);
+		if(pwdcheck.length == 0){
+			alert("비밀번호 확인란을 입력하세요.");
+			f.pwdcheck.value = "";
+			f.pwdcheck.focus();
+			return false;
 		}
 		
 		if(pwdcheck!=pwdval){
@@ -83,9 +91,9 @@
 			f.name.focus();
 			return false;
 		}else{
-			pass = checkByteLen(nameval, 12);
+			pass = checkByteLen(nameval, 20);
 			if(!pass){
-				alert("이름이 너무 깁니다. (6자이내)");
+				alert("이름이 너무 깁니다. (5자이내)");
 				f.name.focus();
 				return false;
 			}
@@ -107,6 +115,27 @@
 				return false;
 			}
 		}
+		
+		var postalcodeval = f.postalcode.value;
+		postalcodeval = trim(postalcodeval);
+		if(postalcodeval.length == 0){
+			alert("우편번호를 입력하세요.");
+
+			f.postalcode.value = "";
+			f.postalcode.focus();
+			return false;
+		}
+		
+		var addrval = f.addr.value;
+		addrval = trim(addrval);
+		if(addrval.length == 0){
+			alert("주소를 입력하세요.");
+
+			f.addr.value = "";
+			f.addr.focus();
+			return false;
+		}
+		
 		
 		
 		
@@ -135,11 +164,25 @@
 			}
 		}
 	}
+	
+	function idCheck(){ //새창 만들기 
+		window.open("idCheckForm.jsp", "idwin", "width=400, height=350");
+		
+		var f=document.getElementById("id");
+		f.readOnly = false;
+	}
+
 	</script>
 	<!-- 추가한 부분 (로그인 확인 js)-->
 	<!-- 카카오맵 도로명주소 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+	
+	function readOnly() {
+	   var f=document.getElementById("addr2");
+	   f.readOnly = false;
+	}
+
     function Postcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -182,6 +225,7 @@
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 document.getElementById('postalcode').value = data.zonecode;
                 document.getElementById("addr").value = addr;
+                readOnly();
                 // 커서를 상세주소 필드로 이동한다.
                 document.getElementById("addr2").focus();
             }
@@ -192,7 +236,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" onload="document.f.id.focus()">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
   <div class="site-wrap">
 
@@ -209,13 +253,17 @@
               <div class="form-group row">
                 <div class="col-md-12">
                   <label for="id" class="text-black">아이디<span class="text-danger">*</span></label>
-                  <input class="form-control" id="id" name="id" placeholder="영어 소문자/숫자 10자이내">             
+                  <input readOnly class="form-control"  id="id" name="id" placeholder="영어 소문자/숫자 10자이내">
+                       
                   </div>
               </div>
+               <div class="form-group">
+                <input type="button" value="ID 중복확인" onclick="idCheck()">
+              </div> 
               <div class="form-group row">
                 <div class="col-md-12">
                   <label for="pwd" class="text-black">비밀번호 <span class="text-danger">*</span></label>
-                  <input class="form-control" id="pwd" name="pwd" type="password" placeholder="영어 소문자/숫자/특수문자(<, >, (, ), #, ', /, | 제외) 10자이내">
+                  <input class="form-control" id="pwd" name="pwd" type="password" placeholder="영어,숫자,특수문자(<, >, (, ), #, ', /, | 제외) 10자이내">
                 </div>
                </div>
                <div class="form-group row">
@@ -256,12 +304,12 @@
                 <input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="우편번호" onclick="Postcode()">
               </div>     
                   
-                  <input type="text" class="form-control" id="addr" name="addr" placeholder="도로명주소">
+                  <input readOnly type="text" class="form-control" id="addr" name="addr"  placeholder="도로명주소">
                 </div>
               </div>
     
               <div class="form-group">
-                <input type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소">
+                <input readOnly type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소">
               </div>   
               
               <div class="form-group row">

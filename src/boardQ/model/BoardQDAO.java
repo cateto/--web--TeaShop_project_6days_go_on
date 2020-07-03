@@ -239,4 +239,25 @@ public class BoardQDAO {
 				}catch(SQLException se){}
 			}
 		}
+	 
+	 /* 추가한 부분 */
+	 
+	 void countPlus(long seq) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = UPCOUNT;
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setLong(1, seq);
+			pstmt.executeUpdate();
+		}catch(SQLException se){
+		}finally{
+			try{
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch(SQLException se){}
+		}
+	 }
 }

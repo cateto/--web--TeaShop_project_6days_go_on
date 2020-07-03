@@ -32,7 +32,7 @@ class LoginDAO {
 	    		String m_id = rs.getString("M_ID");
 	    		String m_pwd = rs.getString("M_PWD");
 	    		String m_name = rs.getString("M_NAME");
-	    		Date m_birth = rs.getDate("M_BITRH");
+	    		Date m_birth = rs.getDate("M_BIRTH");
 	    		String m_phone = rs.getString("M_PHONE");
 	    		String m_email = rs.getString("M_EMAIL");
 	    		String m_addr = rs.getString("M_ADDR");

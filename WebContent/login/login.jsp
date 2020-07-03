@@ -141,8 +141,19 @@
                       </div>
                   </div>
               
+              
             </form>
+            <br/> <br/>
+  			<p class="mb-0">
+              <a href="../member/member.do?m=findID"><b>ID 찾기</b></a>
+			</p>
+            
+    		<p class="mb-0">
+              <a href="../member/member.do?m=findPWD"><b>비밀번호 찾기</b></a>
+            </p>
+            
           </div>
+          
           
         </div>
 

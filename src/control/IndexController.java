@@ -43,7 +43,8 @@ public class IndexController extends HttpServlet {
 	
 	public void tea(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.sendRedirect("product/tea.jsp");
+		String view = "product/product.do?m=list";
+		response.sendRedirect(view);
 	}
 	
 	public void teaware(HttpServletRequest request, HttpServletResponse response) 

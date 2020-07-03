@@ -46,7 +46,12 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 	
 	}
 	
-	</style>
+	.subin{
+	color : #444343;
+	
+	}
+
+</style>
 
 
 </head>
@@ -67,7 +72,6 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
       </div>
     </div>
 
-
     <div class="site-section bg-light">
       <div class="container">
        
@@ -86,7 +90,7 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 
 <div class="table-responsive">
 
-<table class="table table-striped table-sm">
+<table class="table table-striped">
 
 		<colgroup>
 
@@ -105,7 +109,6 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 		<thead>
 
 			<tr align='center'>
-
 				<th>NO</th>
 
 				<th>글제목</th>
@@ -115,12 +118,10 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 				<th>작성일</th>
 
 				<th>조회수</th>
-
 			</tr>
 
 		</thead>
-
-		<tbody>
+		<tbody class="subin">
 
 			<c:if test = "${empty listResult.list}">
 		<tr>
@@ -136,9 +137,9 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
             <td align='center'>${boardq.date}</td>
             <td align='center'>${boardq.count}</td>
             </tr>
+            </div>
 </c:forEach>
 		</tbody>
-
 	</table>
 
 			<a href='boardq.do?m=writeH'><input type="button" class="btn btn-primary float-right" id="btnWriteForm" value="글쓰기"></a>

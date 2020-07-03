@@ -49,4 +49,10 @@ public class BoardQService {
 	public boolean update2S(BoardQ dto) {
 		return dao.update2(dto);
 	}
+	
+	/* 조회수 추가 부분 */
+	
+	public void countplusS(long seq) {
+		dao.countPlus(seq);
+	}
 }

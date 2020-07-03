@@ -30,7 +30,7 @@
  
         <div class="row align-items-center">
           <div class="col-12 text-center">
-            <a href="../index.jsp" class="site-logo">
+            <a href="../index.do" class="site-logo">
               <img src="../images/bintealogo.png" alt="Image" class="img-fluid">
             </a>
           </div>
@@ -81,7 +81,7 @@
       border=0 align=right alt="" style="max-width:100%"/>
     </a>
 
-    <a href="../shop/member.html?type=mynewmain">
+    <a href="../member/member.do?m=edit">
       <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_off.png" 
       onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_on.png'" 
       onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_off.png'";

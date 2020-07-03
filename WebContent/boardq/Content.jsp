@@ -55,9 +55,11 @@ body {
 }
 .board_title {
 
-	font-weight : 700;
+	font-weight : 900;
 
-	font-size : 22pt;
+	font-size : 30pt;
+	
+	color : #ffba59;
 
 	margin : 10pt;
 
@@ -73,15 +75,17 @@ body {
 
 .board_author {
 
-	font-size : 10pt;
+	font-size : 15pt;
 
 	margin-right : 10pt;
+
 
 }
 
 .board_date {
 
-	font-size : 10pt;
+	font-size : 15pt;
+
 
 }
 
@@ -179,6 +183,7 @@ body {
 			<div class="bg-white rounded shadow-sm">
 
 				<div class="board_title"><c:out value="<%=boardq.getSubject()%>"/></div>
+				<div class="col-md-13"><hr /></div>
 
 				<div class="board_info_box">
 

@@ -32,6 +32,8 @@ public class BoardQController extends HttpServlet {
 				content(request, response);
 			}else if(m.equals("delete")){
 				delete(request, response);
+			}else if(m.equals("countPlus")){
+				countPlus(request, response);
 			}else if(m.equals("writeH")){
 				writeH(request, response);
 			}else if(m.equals("write")){
@@ -125,6 +127,8 @@ public class BoardQController extends HttpServlet {
 		String view = "Content.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
+        
+        service.countplusS(seq);
     }
     
     private void delete(HttpServletRequest request, HttpServletResponse response) 
@@ -212,6 +216,20 @@ public class BoardQController extends HttpServlet {
 		String view = "Update2.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
+    }
+    
+    private void countPlus(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+    	BoardQService service = BoardQService.getInstance();
+		long seq = 0;
+		String seqStr = request.getParameter("seq");
+		if(seqStr != null) {
+			seqStr = seqStr.trim();
+			seq = Long.parseLong(seqStr);
+			service.countplusS(seq);
+		}	
+		
+		response.sendRedirect("boardq.do");
     }
 }
 

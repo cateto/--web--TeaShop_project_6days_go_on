@@ -1,5 +1,5 @@
 <%@page contentType="text/html;charset=utf-8"
-import="java.util.*, domain.BoardQ"%>
+import="java.util.*, domain.Product"%>
 <jsp:include page="../etc/frame-ver2.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -100,26 +100,33 @@ body {
         <div class="row mb-5">
           <div class="col-12 section-title text-center mb-5">
             <h2 class="d-block">Our Products</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
+            <p>다양하고 맛있는 차를 BINTEA와 함께 즐기세요!</p>
           </div>
         </div>
 
         <div class="row">
           
-          <div class="col-lg-4 mb-5 col-md-6">
-
+          
+          
+<%
+	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	if(list !=null && list.size()!=0){
+	    for(Product product : list){
+%>
+			<div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
+              <a href="product.do?m=detail&p_code=<%=product.getP_code()%>" class="thumbnail d-block mb-4"><img src="<%=product.getP_img()%>" alt="Image" class="img-fluid"></a>
+
               <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
+                <h3 class="heading mb-1"><a href="#"><%=product.getP_name()%></a></h3>
+                <span class="price"><%=product.getP_price()%>원</span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block">$629.00</span>
+                <h3 class="heading-2"><a href="#"><%=product.getP_name()%></a></h3>
+                <span class="price d-block"><%=product.getP_price()%>원</span>
                 
                 <div class="rating">
                   <span class="icon-star"></span>
@@ -132,230 +139,20 @@ body {
                 <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
               </div>
             </div>
-
-          </div>
-
-          <div class="col-lg-4 mb-5 col-md-6">
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
             </div>
-          </div>
-
-          <div class="col-lg-4 mb-5 col-md-6">
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
-            </div>
+<%
+		}
+	}else{
+%>
+			<tr>
+				<td align='center' colspan="5" >데이터가 없음</td>
+			</tr>
+<%
+	}
+%>	
           </div>
 
 
-          <div class="col-lg-4 mb-5 col-md-6">
-
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block">$629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-4 mb-5 col-md-6">
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mb-5 col-md-6">
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 mb-5 col-md-6">
-
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block">$629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-4 mb-5 col-md-6">
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mb-5 col-md-6">
-            <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
-              <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
-              </div>
-              
-
-              <div class="wine-actions">
-                  
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
-                
-                <div class="rating">
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
-                </div>
-                
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
-              </div>
-            </div>
-          </div>
 
           
 
