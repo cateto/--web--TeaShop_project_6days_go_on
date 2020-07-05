@@ -49,16 +49,16 @@ public class IndexController extends HttpServlet {
 	
 	public void teaware(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.sendRedirect("boardq/boardq.do");
+		response.sendRedirect("product/product.do?m=listTW");
 	}
 	
 	public void giftset(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.sendRedirect("boardq/boardq.do");
+		response.sendRedirect("product/product.do?m=listGift");
 	}
 	public void notice(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		response.sendRedirect("boardq/boardq.do");
+		response.sendRedirect("board/board.do");
 	}
 	public void qna(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {

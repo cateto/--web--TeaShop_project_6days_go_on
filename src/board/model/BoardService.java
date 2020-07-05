@@ -18,6 +18,7 @@ public class BoardService {
 		return instance;
 	}
 	public ListResult getListResult(int currentPage, int pageSize) {
+		System.out.println("");
 		ArrayList<Board> list = dao.list(currentPage, pageSize);
 		long totalCount = dao.getTotalCount();
 		ListResult r = new ListResult(currentPage, totalCount, pageSize, list);

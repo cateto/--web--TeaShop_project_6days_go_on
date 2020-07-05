@@ -3,6 +3,8 @@ package product.model;
 import java.util.ArrayList;
 
 import domain.Product;
+import domain.ProductGift;
+import domain.ProductTW;
 
 public class ProductService {
 	private ProductDAO dao;
@@ -24,5 +26,20 @@ public class ProductService {
 	public ArrayList<Product> contentsS(long p_code) {
 		return dao.contents(p_code);
 	}
-
+	
+	public ArrayList<ProductTW> listTWS() {
+		return dao.listTW();
+	}
+	
+	public ArrayList<ProductTW> contentsTWS(long tw_code) {
+		return dao.contentsTW(tw_code);
+	}
+	
+	public ArrayList<ProductGift> listGiftS() {
+		return dao.listGift();
+	}
+	
+	public ArrayList<ProductGift> contentsGiftS(long g_code) {
+		return dao.contentsGift(g_code);
+	}
 }

@@ -45,7 +45,7 @@ public class BoardDAO {
 				Board b = new Board(b_seq, b_subject, b_content, b_date, b_count);
 				list.add(b);
 			}
-
+			System.out.println("size:"+ list.size());
 			return list;
 		}catch(SQLException se) {
 			return null;
@@ -215,6 +215,9 @@ public class BoardDAO {
 		}
 	}
 	boolean update(Board board){
+		System.out.println("asd:"+ board.getB_content());
+		System.out.println("asd:"+ board.getB_subject());
+		System.out.println("asd:"+ board.getB_seq());
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = BoardSQL.UPDATE;
@@ -223,9 +226,10 @@ public class BoardDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, board.getB_subject());
 			pstmt.setString(2, board.getB_content());
-			pstmt.setDate(3, board.getB_date());
-			pstmt.setLong(4, board.getB_seq());
+			pstmt.setLong(3, board.getB_seq());
+			System.out.println("123");
 			int i = pstmt.executeUpdate();
+			System.out.println("321");
 			if(i>0) return true;
 			else return false;
 		}catch(SQLException se) {

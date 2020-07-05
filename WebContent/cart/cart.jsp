@@ -1,5 +1,5 @@
 <%@page contentType="text/html;charset=utf-8"
-import="java.util.*, domain.Product"%>
+import="java.util.*, domain.Cart"%>
 <jsp:include page="../etc/frame-ver2.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -40,7 +40,55 @@ import="java.util.*, domain.Product"%>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+<!-- 계산 식 -->
+                   
+<script>
+    window.onload = function() {
+   		//getResult();
+    }       
+    
+	
+	
+	function add(i){
+		var q = document.getElementById("quantity"+i).value;
+		console.log(q);
+		q++;
+		console.log(q);
+		document.getElementById("quantity"+i).innerTEXT = q;
 
+		var price = document.getElementById("price"+i).innerHTML;
+		result = price*q;
+		document.getElementById("result"+i).innerText = result;
+	}
+	
+	function minus(i){
+		var q = document.getElementById("quantity"+i).value;
+		console.log(q);
+		q--;
+		console.log(q);
+		document.getElementById("quantity"+i).innerTEXT = q;
+		
+		var price = document.getElementById("price"+i).innerHTML;
+		result = price*q;
+		document.getElementById("result"+i).innerText = result;
+	}
+	
+	function getResult(){
+		var price = document.getElementById("price").innerHTML;
+		console.log(price);
+		
+		var q = document.getElementById("quantity").value;
+		console.log(q);
+				
+		result = q*price;
+		console.log(result);
+		
+		document.getElementById("result").innerText = result;
+		//return result;
+	}     
+                    
+</script>       
+     
 
 
 </head>
@@ -74,55 +122,49 @@ import="java.util.*, domain.Product"%>
                   </tr>
                 </thead>
                 <tbody>
+<%
+	ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cart");
+	if(cartList !=null && cartList.size()!=0){
+		int i=0;
+	    for(Cart cart : cartList){
+%>      
+
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="images/wine_1.png" alt="Image" class="img-fluid">
+                      <img src="<%=cart.getP_img()%>" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 cart-product-title text-black">Trius Cabernet France 2011</h2>
+                      <h2 class="h5 cart-product-title text-black"><%=cart.getP_name()%></h2>
                     </td>
-                    <td>$55.00</td>
+                    <td><span id="price<%=i%>"><%=cart.getP_price()%></span><span>원</span></td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                          <button class="btn btn-outline-primary js-btn-minus" type="button" onclick="minus(<%=i%>)">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center border mr-0" value="1" placeholder=""
+                        <input type="text" id="quantity<%=i%>"class="form-control text-center border mr-0" value="<%=cart.getP_amount() %>" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                          <button class="btn btn-outline-primary js-btn-plus" type="button" onclick="add(<%=i%>)">&plus;</button>
                         </div>
                       </div>
-    
                     </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
+
+                    <td><span id="result<%=i%>"><!-- <script>document.getElementById('result').innerTEXT=getResult()</script> --><%=cart.getP_price()*cart.getP_amount() %></span></td>
+                    <td><a href="cart.do?m=cleanProduct&code=<%=cart.getP_code()%>" class="btn btn-primary height-auto btn-sm">X</a></td>
                   </tr>
-    
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="images/wine_2.png" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 cart-product-title text-black">Trius Cabernet France 2011</h2>
-                    </td>
-                    <td>$49.00</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center border mr-0" value="1" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
-    
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
-                  </tr>
+<%
+	i++;
+		}
+	}else{
+%>
+			<tr>
+				<td align='center' colspan="6" >장바구니가 비어있습니다.</td>
+			</tr>
+<%
+	}
+%>	    
+
                 </tbody>
               </table>
             </div>
@@ -138,22 +180,22 @@ import="java.util.*, domain.Product"%>
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-md btn-block">Update Cart</button>
+                <button class="btn btn-primary btn-md btn-block">장바구니 새로고침</button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-md btn-block">Continue Shopping</button>
+                <button class="btn btn-outline-primary btn-md btn-block">계속 쇼핑하기</button>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <label class="text-black h4" for="coupon">Coupon</label>
-                <p>Enter your coupon code if you have one.</p>
+                <label class="text-black h4" for="coupon">쿠폰</label>
+                <p>쿠폰이 있으시면, 쿠폰 코드를 입력해주세요.</p>
               </div>
               <div class="col-md-8 mb-3 mb-md-0">
                 <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
               </div>
               <div class="col-md-4">
-                <button class="btn btn-primary btn-md px-4">Apply Coupon</button>
+                <button class="btn btn-primary btn-md px-4">쿠폰 적용</button>
               </div>
             </div>
           </div>
@@ -162,12 +204,12 @@ import="java.util.*, domain.Product"%>
               <div class="col-md-7">
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                    <h3 class="text-black h4 text-uppercase">장바구니 합계</h3>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <div class="col-md-6">
-                    <span class="text-black">Subtotal</span>
+                    <span class="text-black">할인 금액</span>
                   </div>
                   <div class="col-md-6 text-right">
                     <strong class="text-black">$230.00</strong>
@@ -175,7 +217,7 @@ import="java.util.*, domain.Product"%>
                 </div>
                 <div class="row mb-5">
                   <div class="col-md-6">
-                    <span class="text-black">Total</span>
+                    <span class="text-black">합계</span>
                   </div>
                   <div class="col-md-6 text-right">
                     <strong class="text-black">$230.00</strong>
@@ -184,8 +226,7 @@ import="java.util.*, domain.Product"%>
     
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">Proceed To
-                      Checkout</button>
+                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">구매하러 가기</button>
                   </div>
                 </div>
               </div>
@@ -202,6 +243,8 @@ import="java.util.*, domain.Product"%>
 
   <!-- .site-wrap -->
 
+
+   
 
   <!-- loader -->
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>

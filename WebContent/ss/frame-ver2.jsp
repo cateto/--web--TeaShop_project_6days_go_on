@@ -18,20 +18,20 @@
       <div class="field col-md-6 col-md-offset-3">
       		
       	<c:if test="${!empty loginUser}">
-      		<a href="../login/login.do?m=out"><button type="button" class="btn btn-light btn-sm">LOGOUT</button></a>
+      		<a href="../login/login.do?m=out"><button type="button" class="btn btn-outline-secondary">LOGOUT</button></a>
         </c:if>
            
         <c:if test="${empty loginUser}">
-           <a href="../login/login.do?m=form"><button type="button" class="btn btn-light btn-sm">LOGIN</button></a>
+           <a href="../login/login.do?m=form"><button type="button" class="btn btn-outline-secondary">LOGIN</button></a>
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <a href="../member/member.do?m=form"><button type="button" class="btn btn-light btn-sm">JOIN</button></a>
+           <a href="../member/member.do?m=form"><button type="button" class="btn btn-outline-secondary">JOIN</button></a>
        	</c:if>
        </div>
  
         <div class="row align-items-center">
           <div class="col-12 text-center">
             <a href="../index.do" class="site-logo">
-              <img src="../images/bintealogoo.png" alt="Image" class="img-fluid">
+              <img src="../images/bintealogo.png" alt="Image" class="img-fluid">
             </a>
           </div>
           

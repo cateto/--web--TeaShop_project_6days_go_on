@@ -18,7 +18,7 @@ import boardQ.model.BoardQService;
 import domain.Board;
 import domain.BoardQ;
 import domain.Member;
-import oracle.net.aso.m;
+
 
 @WebServlet("/board/board.do")
 public class BoardControl extends HttpServlet {
@@ -49,15 +49,18 @@ public class BoardControl extends HttpServlet {
 	
 	public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cpStr = request.getParameter("cp");
+		System.out.println("1");
 		String psStr = request.getParameter("ps");
 		HttpSession session = request.getSession();
 		System.out.println("check1");
-		
+		System.out.println("1");
 		//유저접속(테스트) 
 		session.setAttribute("loginUser", "gb11@naver.com");//지울 아이디
+		System.out.println("2");
 		session.setAttribute("Admin", domain.Admin.getAdmin());//임포트안하면 이렇게한다!
 		//(1) cp 
 		int cp = 1;
+		System.out.println("3");
 		if(cpStr == null) {
 			Object cpObj = session.getAttribute("cp");
 			if(cpObj != null) {
@@ -170,13 +173,14 @@ public class BoardControl extends HttpServlet {
 	}
 	public void updateOk(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		long b_seq = getSeq(request);
-		String b_subject = request.getParameter("b_subject");
-		String b_content = request.getParameter("b_content");
-		String b_count = request.getParameter("b_count");
+		System.out.println("b_seq:" + b_seq);
+		String b_subject = request.getParameter("title");
+		String b_content = request.getParameter("content");
+		
 	
 		
 		BoardService service = BoardService.getInstance();
-		boolean flag = service.updateS(new Board(-1, b_subject, b_content, null,-1));
+		boolean flag = service.updateS(new Board(b_seq, b_subject, b_content, null,-1));
 		request.setAttribute("result", flag);
 		request.setAttribute("kind", "updateOk");
 		

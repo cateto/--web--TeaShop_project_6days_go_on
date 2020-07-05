@@ -1,5 +1,5 @@
 <%@page contentType="text/html;charset=utf-8"
-import="java.util.*, domain.Product"%>
+import="java.util.*, domain.ProductGift"%>
 <jsp:include page="../etc/frame-ver2.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -109,24 +109,24 @@ body {
           
           
 <%
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
-	if(list !=null && list.size()!=0){
-	    for(Product product : list){
+	ArrayList<ProductGift> listGift = (ArrayList<ProductGift>)request.getAttribute("listGift");
+	if(listGift !=null && listGift.size()!=0){
+	    for(ProductGift product : listGift){
 %>
 			<div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
-              <a href="product.do?m=detail&p_code=<%=product.getP_code()%>" class="thumbnail d-block mb-4"><img src="<%=product.getP_img()%>" alt="Image" class="img-fluid"></a>
+              <a href="product.do?m=detailGift&g_code=<%=product.getG_code()%>" class="thumbnail d-block mb-4"><img src="<%=product.getG_img()%>" alt="Image" class="img-fluid"></a>
 
               <div>
-                <h3 class="heading mb-1"><a href="product.do?m=detail&p_code=<%=product.getP_code()%>"><%=product.getP_name()%></a></h3>
-                <span class="price"><%=product.getP_price()%>원</span>
+                <h3 class="heading mb-1"><a href="product.do?m=detailGift&g_code=<%=product.getG_code()%>"><%=product.getG_name()%></a></h3>
+                <span class="price"><%=product.getG_price()%>원</span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><a href="product.do?m=detail&p_code=<%=product.getP_code()%>"><%=product.getP_name()%></a></h3>
-                <span class="price d-block"><%=product.getP_price()%>원</span>
+                <h3 class="heading-2"><a href="product.do?m=detailGift&g_code=<%=product.getG_code()%>"><%=product.getG_name()%></a></h3>
+                <span class="price d-block"><%=product.getG_price()%>원</span>
                 
                 <div class="rating">
                   <span class="icon-star"></span>

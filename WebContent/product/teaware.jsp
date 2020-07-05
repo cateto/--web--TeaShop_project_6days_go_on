@@ -1,5 +1,5 @@
 <%@page contentType="text/html;charset=utf-8"
-import="java.util.*, domain.Product"%>
+import="java.util.*, domain.ProductTW"%>
 <jsp:include page="../etc/frame-ver2.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -109,24 +109,24 @@ body {
           
           
 <%
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
-	if(list !=null && list.size()!=0){
-	    for(Product product : list){
+	ArrayList<ProductTW> listTW = (ArrayList<ProductTW>)request.getAttribute("listTW");
+	if(listTW !=null && listTW.size()!=0){
+	    for(ProductTW product : listTW){
 %>
 			<div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
-              <a href="product.do?m=detail&p_code=<%=product.getP_code()%>" class="thumbnail d-block mb-4"><img src="<%=product.getP_img()%>" alt="Image" class="img-fluid"></a>
+              <a href="product.do?m=detailTW&tw_code=<%=product.getTw_code()%>" class="thumbnail d-block mb-4"><img src="<%=product.getTw_img()%>" alt="Image" class="img-fluid"></a>
 
               <div>
-                <h3 class="heading mb-1"><a href="product.do?m=detail&p_code=<%=product.getP_code()%>"><%=product.getP_name()%></a></h3>
-                <span class="price"><%=product.getP_price()%>원</span>
+                <h3 class="heading mb-1"><a href="product.do?m=detailTW&tw_code=<%=product.getTw_code()%>"><%=product.getTw_name()%></a></h3>
+                <span class="price"><%=product.getTw_price()%>원</span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><a href="product.do?m=detail&p_code=<%=product.getP_code()%>"><%=product.getP_name()%></a></h3>
-                <span class="price d-block"><%=product.getP_price()%>원</span>
+                <h3 class="heading-2"><a href="product.do?m=detailTW&tw_code=<%=product.getTw_code()%>"><%=product.getTw_name()%></a></h3>
+                <span class="price d-block"><%=product.getTw_price()%>원</span>
                 
                 <div class="rating">
                   <span class="icon-star"></span>

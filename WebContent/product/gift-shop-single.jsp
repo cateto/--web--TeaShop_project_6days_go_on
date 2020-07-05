@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*, domain.Product"%>
+    pageEncoding="UTF-8" import="java.util.*, domain.ProductGift"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../etc/frame-ver2.jsp"/>
 <!DOCTYPE html>
@@ -41,16 +41,16 @@
   
 <%	
 
-    ArrayList<Product> contents = (ArrayList<Product>)request.getAttribute("contents");
-    if(contents !=null && contents.size()!=0){
-        for(Product product : contents){
+    ArrayList<ProductGift> contentsGift = (ArrayList<ProductGift>)request.getAttribute("contentsGift");
+    if(contentsGift !=null && contentsGift.size()!=0){
+        for(ProductGift product : contentsGift){
 %>
     
     <div class="site-section bg-primary py-5 page-title-wrap mt-5">
       <div class="container">
 
       
-        <h1><%=product.getP_name()%></h1>
+        <h1><%=product.getG_name()%></h1>
       </div>
     </div>
 
@@ -59,14 +59,14 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="owl-carousel hero-slide owl-style">
-              <img src="<%=product.getP_img()%>" alt="Image" class="img-fluid">
-              <img src="<%=product.getP_img()%>" alt="Image" class="img-fluid">
-              <img src="<%=product.getP_img()%>" alt="Image" class="img-fluid">
+              <img src="<%=product.getG_img()%>" alt="Image" class="img-fluid">
+              <img src="<%=product.getG_img()%>" alt="Image" class="img-fluid">
+              <img src="<%=product.getG_img()%>" alt="Image" class="img-fluid">
             </div>
           </div>
           <div class="col-lg-5 ml-auto">
-            <h2 class="text-primary"><%=product.getP_name()%></h2>
-            <p><%=product.getP_story()%></p>
+            <h2 class="text-primary"><%=product.getG_name()%></h2>
+            <p><%=product.getG_story()%></p>
 
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 200px;">

@@ -18,20 +18,20 @@
       <div class="field col-md-6 col-md-offset-3">
       		
       	<c:if test="${!empty loginUser}">
-      		<a href="../login/login.do?m=out"><button type="button" class="btn btn-light btn-sm">LOGOUT</button></a>
+      		<a href="login/login.do?m=out"><button type="button" class="btn btn-outline-secondary">LOGOUT</button></a>
         </c:if>
            
         <c:if test="${empty loginUser}">
-           <a href="../login/login.do?m=form"><button type="button" class="btn btn-light btn-sm">LOGIN</button></a>
+           <a href="login/login.do?m=form"><button type="button" class="btn btn-outline-secondary">LOGIN</button></a>
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <a href="../member/member.do?m=form"><button type="button" class="btn btn-light btn-sm">JOIN</button></a>
+           <a href="member/member.do?m=form"><button type="button" class="btn btn-outline-secondary">JOIN</button></a>
        	</c:if>
        </div>
  
         <div class="row align-items-center">
           <div class="col-12 text-center">
-            <a href="../index.do" class="site-logo">
-              <img src="../images/bintealogoo.png" alt="Image" class="img-fluid">
+            <a href="index.do" class="site-logo">
+              <img src="images/bintealogo.png" alt="Image" class="img-fluid">
             </a>
           </div>
           
@@ -53,11 +53,11 @@
           <div class="mx-auto">
             <nav class="site-navigation position-relative text-left" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mx-auto d-none pl-0 d-lg-block border-none">
-                <li><a href="../index.do?m=notice" class="nav-link text-left">NOTICE</a></li>
-                <li><a href="../index.do?m=tea" class="nav-link text-left">TEA</a></li>
-                <li><a href="../index.do?m=teaware" class="nav-link text-left">TEAWARE</a></li>
-                <li><a href="../index.do?m=giftset" class="nav-link text-left">GIFTSET</a></li>
-                <li><a href="../index.do?m=qna" class="nav-link text-left">Q&A</a></li>
+                <li><a href="index.do?m=notice" class="nav-link text-left">NOTICE</a></li>
+                <li><a href="index.do?m=tea" class="nav-link text-left">TEA</a></li>
+                <li><a href="index.do?m=teaware" class="nav-link text-left">TEAWARE</a></li>
+                <li><a href="index.do?m=giftset" class="nav-link text-left">GIFTSET</a></li>
+                <li><a href="index.do?m=qna" class="nav-link text-left">Q&A</a></li>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -67,7 +67,7 @@
                 &nbsp;&nbsp;&nbsp;
                               
                         
-                          <a href="../cart/cart.do?m=cart">
+                          <a href="cart/cart.do?m=cart">
       <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_off.png" 
       onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_on.png'" 
       onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_off.png'";
@@ -81,7 +81,7 @@
       border=0 align=right alt="" style="max-width:100%"/>
     </a>
 
-    <a href="../member/member.do?m=edit">
+    <a href="member/member.do?m=edit">
       <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_off.png" 
       onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_on.png'" 
       onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_off.png'";

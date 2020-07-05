@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import boardQ.model.BoardQService;
 import domain.BoardQ;
 import domain.Product;
+import domain.ProductGift;
+import domain.ProductTW;
 import product.model.ProductService;
 
 /**
@@ -32,6 +34,18 @@ public class ProductController extends HttpServlet {
 			}
 			if(m.equals("detail")){
 				detail(request, response);
+			}
+			if(m.equals("listTW")){
+				listTW(request, response);
+			}
+			if(m.equals("detailTW")){
+				detailTW(request, response);
+			}
+			if(m.equals("listGift")){
+				listGift(request, response);
+			}
+			if(m.equals("detailGift")){
+				detailGift(request, response);
 			}
 		}else{
 			list(request, response);
@@ -61,6 +75,60 @@ public class ProductController extends HttpServlet {
 		request.setAttribute("contents", contents);
 		
 		String view = "shop-single.jsp";
+        RequestDispatcher rd = request.getRequestDispatcher(view);
+        rd.forward(request, response);
+    }
+	
+	private void listTW(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		ProductService service = ProductService.getInstance();
+		ArrayList<ProductTW> listTW = service.listTWS();
+		request.setAttribute("listTW", listTW);
+		
+		String view = "teaware.jsp";
+        RequestDispatcher rd = request.getRequestDispatcher(view);
+        rd.forward(request, response);
+    }
+	
+	private void detailTW(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		ProductService service = ProductService.getInstance();
+		String codeStr =  request.getParameter("tw_code");
+		if(codeStr != null) codeStr = codeStr.trim();
+		long tw_code = Long.parseLong(codeStr);
+		
+		
+		ArrayList<ProductTW> contentsTW = service.contentsTWS(tw_code);
+		request.setAttribute("contentsTW", contentsTW);
+		
+		String view = "teaware-shop-single.jsp";
+        RequestDispatcher rd = request.getRequestDispatcher(view);
+        rd.forward(request, response);
+    }
+	
+	private void listGift(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		ProductService service = ProductService.getInstance();
+		ArrayList<ProductGift> listGift = service.listGiftS();
+		request.setAttribute("listGift", listGift);
+		
+		String view = "gifttea.jsp";
+        RequestDispatcher rd = request.getRequestDispatcher(view);
+        rd.forward(request, response);
+    }
+	
+	private void detailGift(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		ProductService service = ProductService.getInstance();
+		String codeStr =  request.getParameter("g_code");
+		if(codeStr != null) codeStr = codeStr.trim();
+		long g_code = Long.parseLong(codeStr);
+		
+		
+		ArrayList<ProductGift> contentsGift = service.contentsGiftS(g_code);
+		request.setAttribute("contentsGift", contentsGift);
+		
+		String view = "gift-shop-single.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
     }
