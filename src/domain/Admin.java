@@ -1,7 +1,7 @@
 package domain;
 
 public class Admin {
-	private static String admin = "gb11@naver.com";
+	private static String admin = "sb11";
 
 	
 	public Admin() {

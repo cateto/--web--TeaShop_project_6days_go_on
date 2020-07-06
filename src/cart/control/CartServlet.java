@@ -72,11 +72,10 @@ public class CartServlet extends HttpServlet {
 	private void PutIntoCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();
-		
+
 		String m_id = null;
-		long p_amount = -1L;
+		long p_amount = 1;
 		long p_code = -1L;
-		
 		
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		System.out.println(loginUser);
@@ -86,18 +85,20 @@ public class CartServlet extends HttpServlet {
 		
 		String p_amountStr = request.getParameter("p_amount");
 	    String p_codeStr = request.getParameter("p_code");
-	    
-	    try {
-			if(p_codeStr!=null) p_codeStr = p_codeStr.trim();
-			if(p_amountStr!=null) p_amountStr = p_amountStr.trim();
-			p_code = Long.parseLong(p_codeStr);
-			p_amount = Long.parseLong(p_amountStr);
-		}catch(NumberFormatException ne) {}
+	    if(p_amountStr !=null || p_codeStr !=null) {
+		    try {
+				if(p_codeStr!=null) p_codeStr = p_codeStr.trim();
+				if(p_amountStr!=null) p_amountStr = p_amountStr.trim();
+				p_code = Long.parseLong(p_codeStr);
+				p_amount = Long.parseLong(p_amountStr);
+			}catch(NumberFormatException ne) {}
+	    }
 		
 
 		CartService service = CartService.getInstance();
+
 		Boolean flag = service.PutIntoCart(m_id, p_amount, p_code);
-	    
+		session.setAttribute("cFlag", flag);
 		String view = "cart_msg.jsp";
 		response.sendRedirect(view);
 	}

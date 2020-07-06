@@ -32,12 +32,12 @@ public class BoardControl extends HttpServlet {
 			m = m.trim();
 			switch (m) {
 				case "write": write(request, response); break;
-				case "writeOk": writeOk(request, response); break;
+				case "writeOk": System.out.println("writeOk in"); writeOk(request, response); break;
 				case "content": System.out.println("in"); content(request, response);break;
 				case "update": getBoard(request, response, "update"); break;
 				case "updateOk": updateOk(request, response); break;
 				case "delete": del(request, response); break;
-				case "insert": insertS(request, response); break;
+				case "upcount": upcountS(request, response); break;
 				
 				default: list(request, response); break;
 			}
@@ -46,18 +46,15 @@ public class BoardControl extends HttpServlet {
 		}
 	}
 
-	
+	// ï¿½ï¿½ï¿½ï¿½Æ® 
 	public void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cpStr = request.getParameter("cp");
-		System.out.println("1");
 		String psStr = request.getParameter("ps");
 		HttpSession session = request.getSession();
-		System.out.println("check1");
-		System.out.println("1");
-		//À¯ÀúÁ¢¼Ó(Å×½ºÆ®) 
-		session.setAttribute("loginUser", "gb11@naver.com");//Áö¿ï ¾ÆÀÌµð
-		System.out.println("2");
-		session.setAttribute("Admin", domain.Admin.getAdmin());//ÀÓÆ÷Æ®¾ÈÇÏ¸é ÀÌ·¸°ÔÇÑ´Ù!
+	
+		
+		//session.setAttribute("loginUser", "sb11");
+		//session.setAttribute("Admin", domain.Admin.getAdmin());
 		//(1) cp 
 		int cp = 1;
 		System.out.println("3");
@@ -102,11 +99,8 @@ public class BoardControl extends HttpServlet {
 		session.setAttribute("ps", ps);
 		
 		BoardService service = BoardService.getInstance();
-		ListResult listResult = service.getListResult(cp, ps);
-		System.out.println(listResult);
-		System.out.println(listResult.getList().size());
-		request.setAttribute("listResult", listResult);
-		
+		ListResult listResult = service.getListResult(cp, ps);		
+		request.setAttribute("listResult", listResult);		
 		if(listResult.getList().size() == 0 && cp>1) {
 			response.sendRedirect("board.do?m=list&cp="+(cp-1));
 		}else {
@@ -115,41 +109,22 @@ public class BoardControl extends HttpServlet {
 			rd.forward(request, response);
 		}
 	}
-	public void insertS(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String b_subject = request.getParameter("b_subject");
-		String b_content = request.getParameter("b_content");
-		Board board = new Board(-1, b_subject, b_content, null,-1);
-		
-		BoardService service = BoardService.getInstance();
-		boolean flag = service.insertS(board);
-		request.setAttribute("flag", flag );
-		
-		String view = "insert.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(view);
-		rd.forward(request, response);
-		
-	}
+	// ï¿½Û¾ï¿½ï¿½ï¿½ form
 	public void write(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String b_seqStr = request.getParameter("seq").trim();
-		long b_seq = Long.parseLong(b_seqStr);
-		BoardService service = BoardService.getInstance();
-		Board board = service.getBoardS(b_seq);
-		
-		request.setAttribute("board", board);
-		
-		
 		String view = "write.jsp";	
-		RequestDispatcher rd = request.getRequestDispatcher(view);
-		rd.forward(request, response);
+		response.sendRedirect(view);
 	}	
+	// ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½ï¿½ï¿½
 	public void writeOk(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String b_subject = request.getParameter("b_subject");
-		String b_content = request.getParameter("b_content");
-		String b_count = request.getParameter("b_count");
+		String b_subject = request.getParameter("title");
+		String b_content = request.getParameter("content");
 		
+		System.out.println(b_subject);
+		
+		System.out.println(b_content);
 		
 		BoardService service = BoardService.getInstance();
-		boolean flag = service.insertS(new Board(-1, b_subject, b_content, null,-1));
+		boolean flag = service.writeOk(new Board(-1, b_subject, b_content, null,-1));
 		request.setAttribute("result", flag);
 		request.setAttribute("kind", "writeOk");
 		
@@ -157,6 +132,7 @@ public class BoardControl extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(view);
 		rd.forward(request, response);
 	}
+	
 	public void getBoard(HttpServletRequest request, HttpServletResponse response, String view)
 			throws ServletException, IOException {
 		long seq = getSeq(request);
@@ -171,6 +147,7 @@ public class BoardControl extends HttpServlet {
 			response.sendRedirect("board.do");
 		}
 	}
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½&ï¿½ï¿½ï¿½ï¿½
 	public void updateOk(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		long b_seq = getSeq(request);
 		System.out.println("b_seq:" + b_seq);
@@ -188,7 +165,7 @@ public class BoardControl extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(view);
 		rd.forward(request, response);
 	}
-	
+	//ï¿½Ô½Ã±ï¿½ form
 	private void content(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
     	BoardService service = BoardService.getInstance();
@@ -203,8 +180,10 @@ public class BoardControl extends HttpServlet {
 		String view = "content.jsp";
         RequestDispatcher rd = request.getRequestDispatcher(view);
         rd.forward(request, response);
+        
+        service.upcountS(seq);
     }
-	
+	//ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void del(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		long seq = getSeq(request);
 		if(seq != -1L) {
@@ -213,7 +192,7 @@ public class BoardControl extends HttpServlet {
 		}
 		response.sendRedirect("board.do");
 	}
-	
+	// ?? ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°Å¶ï¿½ ï¿½Ì°Å´ï¿½ ï¿½ð¸£°Ú¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¤Ð¤Ð¤ï¿½
 	private long getSeq(HttpServletRequest request) {
 		long seq = -1L;
 		String seqStr = request.getParameter("seq");
@@ -226,5 +205,18 @@ public class BoardControl extends HttpServlet {
 		}
 		
 		return seq;
+	}
+	// ï¿½ï¿½È¸ï¿½ï¿½
+	private void upcountS(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		long seq = getSeq(request);
+		System.out.println("123");
+		if(seq != -1L) {
+			BoardService service = BoardService.getInstance();
+			System.out.println("321");
+			service.upcountS(seq);
+		}
+		response.sendRedirect("board.do");
+		
 	}
 }

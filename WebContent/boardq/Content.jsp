@@ -198,11 +198,11 @@ body {
 			
 
 			<div style="margin-top : 20px" align='right'>
-
+				<c:if test="${!empty sessionScope.Admin}">
 				<a href='boardq.do?m=update&seq=<%=boardq.getSeq()%>'><input type="button" class="btn pull-left" id="btnUpdate" value="수정"></a>
 
 				<a href='boardq.do?m=delete&seq=<%=boardq.getSeq()%>'><input type="button" class="btn pull-right" id="btnDelete" value="삭제"></a>
-
+				</c:if>
 				<button type="button" class="btn pull-center" id="btnList">목록</button>
 
 			</div>

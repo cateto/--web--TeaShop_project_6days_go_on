@@ -15,8 +15,6 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import domain.Product;
-import domain.ProductGift;
-import domain.ProductTW;
 
 public class ProductDAO {
 	
@@ -28,7 +26,7 @@ public class ProductDAO {
 		ds = (DataSource)envContext.lookup("jdbc/myoracle");
 		
 		}catch(NamingException ne) {
-			System.out.println("Apache DBCP 객체 찾지 못함");
+			System.out.println("Apache DBCP 객체 찾�? 못함");
 		}
 	}
 	
@@ -51,7 +49,8 @@ public class ProductDAO {
 				long p_amount = rs.getLong("P_AMOUNT");
 				String p_story = rs.getString("P_STORY");
 				String p_img = rs.getString("P_IMG");
-				list.add(new Product(p_code, p_type, p_name, p_price, p_amount, p_story, p_img));
+				String p_info = rs.getString("P_INFO");
+				list.add(new Product(p_code, p_type, p_name, p_price, p_amount, p_story, p_img, p_info));
 				}
 				return list;
 			}catch(SQLException se){
@@ -85,7 +84,8 @@ public class ProductDAO {
 					long p_amount = rs.getLong("P_AMOUNT");
 					String p_story = rs.getString("P_STORY");
 					String p_img = rs.getString("P_IMG");
-					contents.add(new Product(p_code, p_type, p_name, p_price, p_amount, p_story, p_img));
+					String p_info = rs.getString("P_INFO");
+					contents.add(new Product(p_code, p_type, p_name, p_price, p_amount, p_story, p_img, p_info));
 				}
 				return contents;
 			}catch(SQLException se){
@@ -101,8 +101,8 @@ public class ProductDAO {
 	 }
 	
 	
-	ArrayList<ProductTW> listTW(){
-		ArrayList<ProductTW> listTW = new ArrayList<ProductTW>();
+	ArrayList<Product> listTW(){
+		ArrayList<Product> listTW = new ArrayList<Product>();
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -113,15 +113,15 @@ public class ProductDAO {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()){
-				long tw_code = rs.getLong("TW_CODE");
-				String tw_type = rs.getString("TW_TYPE");
-				String tw_name = rs.getString("TW_NAME");
-				long tw_price = rs.getLong("TW_PRICE");
-				long tw_amount = rs.getLong("TW_AMOUNT");
-				String tw_story = rs.getString("TW_STORY");
-				String tw_img = rs.getString("TW_IMG");
-				String tw_info = rs.getString("TW_INFO");
-				listTW.add(new ProductTW(tw_code, tw_type, tw_name, tw_price, tw_amount, tw_story, tw_img, tw_info));
+				long p_code = rs.getLong("P_CODE");
+				String p_type = rs.getString("P_TYPE");
+				String p_name = rs.getString("P_NAME");
+				long p_price = rs.getLong("P_PRICE");
+				long p_amount = rs.getLong("P_AMOUNT");
+				String p_story = rs.getString("P_STORY");
+				String p_img = rs.getString("P_IMG");
+				String p_info = rs.getString("P_INFO");
+				listTW.add(new Product(p_code, p_type, p_name, p_price, p_amount, p_story, p_img, p_info));
 				}
 				return listTW;
 			}catch(SQLException se){
@@ -136,43 +136,8 @@ public class ProductDAO {
 			}  
 	}
 	
-	ArrayList<ProductTW> contentsTW(long tw_code){
-		 ArrayList<ProductTW> contentsTW = new ArrayList<ProductTW>();
-			Connection con = null;
-			Statement stmt = null;
-			ResultSet rs = null;
-		    String sql = "select * from TW_PRODUCT where TW_CODE ="+ tw_code;
-		    
-		    try{
-				con = ds.getConnection();
-				stmt = con.createStatement();
-				rs = stmt.executeQuery(sql);
-				while(rs.next()){
-					tw_code = rs.getLong("TW_CODE");
-					String tw_type = rs.getString("TW_TYPE");
-					String tw_name = rs.getString("TW_NAME");
-					long tw_price = rs.getLong("TW_PRICE");
-					long tw_amount = rs.getLong("TW_AMOUNT");
-					String tw_story = rs.getString("TW_STORY");
-					String tw_img = rs.getString("TW_IMG");
-					String tw_info = rs.getString("TW_INFO");
-					contentsTW.add(new ProductTW(tw_code, tw_type, tw_name, tw_price, tw_amount, tw_story, tw_img, tw_info));
-				}
-				return contentsTW;
-			}catch(SQLException se){
-				System.out.println(se);
-				return null;
-			}finally{
-					try{
-						if(rs != null) rs.close();
-						if(stmt != null) stmt.close();
-						if(con != null)  con.close();
-					}catch(SQLException se){}
-				}  
-	 }
-	
-	ArrayList<ProductGift> listGift(){
-		ArrayList<ProductGift> listGift = new ArrayList<ProductGift>();
+	ArrayList<Product> listGift(){
+		ArrayList<Product> listGift = new ArrayList<Product>();
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -183,15 +148,15 @@ public class ProductDAO {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()){
-				long g_code = rs.getLong("G_CODE");
-				String g_type = rs.getString("G_TYPE");
-				String g_name = rs.getString("G_NAME");
-				long g_price = rs.getLong("G_PRICE");
-				long g_amount = rs.getLong("G_AMOUNT");
-				String g_story = rs.getString("G_STORY");
-				String g_img = rs.getString("G_IMG");
-				String g_info = rs.getString("G_INFO");
-				listGift.add(new ProductGift(g_code, g_type, g_name, g_price, g_amount, g_story, g_img, g_info));
+				long p_code = rs.getLong("P_CODE");
+				String p_type = rs.getString("P_TYPE");
+				String p_name = rs.getString("P_NAME");
+				long p_price = rs.getLong("P_PRICE");
+				long p_amount = rs.getLong("P_AMOUNT");
+				String p_story = rs.getString("P_STORY");
+				String p_img = rs.getString("P_IMG");
+				String p_info = rs.getString("P_INFO");
+				listGift.add(new Product(p_code, p_type, p_name, p_price, p_amount, p_story, p_img, p_info));
 				}
 				return listGift;
 			}catch(SQLException se){
@@ -206,38 +171,5 @@ public class ProductDAO {
 			}  
 	}
 	
-	ArrayList<ProductGift> contentsGift(long g_code){
-		 ArrayList<ProductGift> contentsGift = new ArrayList<ProductGift>();
-			Connection con = null;
-			Statement stmt = null;
-			ResultSet rs = null;
-		    String sql = "select * from G_PRODUCT where G_CODE ="+ g_code;
-		    
-		    try{
-				con = ds.getConnection();
-				stmt = con.createStatement();
-				rs = stmt.executeQuery(sql);
-				while(rs.next()){
-					g_code = rs.getLong("G_CODE");
-					String g_type = rs.getString("G_TYPE");
-					String g_name = rs.getString("G_NAME");
-					long g_price = rs.getLong("G_PRICE");
-					long g_amount = rs.getLong("G_AMOUNT");
-					String g_story = rs.getString("G_STORY");
-					String g_img = rs.getString("G_IMG");
-					String g_info = rs.getString("G_INFO");
-					contentsGift.add(new ProductGift(g_code, g_type, g_name, g_price, g_amount, g_story, g_img, g_info));
-				}
-				return contentsGift;
-			}catch(SQLException se){
-				System.out.println(se);
-				return null;
-			}finally{
-					try{
-						if(rs != null) rs.close();
-						if(stmt != null) stmt.close();
-						if(con != null)  con.close();
-					}catch(SQLException se){}
-				}  
-	 }
+	
 }

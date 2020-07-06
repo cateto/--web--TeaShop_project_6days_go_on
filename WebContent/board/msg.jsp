@@ -23,6 +23,6 @@
 			   alert("수정 실패!");
 		   }
 	}
-	
 	location.href="board.do";
+	
 </script>

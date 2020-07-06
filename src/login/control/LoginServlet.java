@@ -38,7 +38,9 @@ public class LoginServlet extends HttpServlet {
 		response.sendRedirect(view);
 	}
 	private void check(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    String id = request.getParameter("id");
+		HttpSession session = request.getSession();
+		
+		String id = request.getParameter("id");
 	    String pwd = request.getParameter("pwd");
 	    if(id != null) id = id.trim();
 	    if(pwd != null) pwd = pwd.trim();
@@ -48,11 +50,13 @@ public class LoginServlet extends HttpServlet {
 	    request.setAttribute("rCode", rCode);
 	    
 	    if(rCode == LoginSet.PASS) {
-	    	HttpSession session = request.getSession();
+	    	
 	    	Member m = service.getMemberS(id);
 	    	session.setAttribute("loginUser", m);
 	    }
-	    
+	    if(id.equals(domain.Admin.getAdmin())){
+	    	session.setAttribute("Admin", domain.Admin.getAdmin());
+	    }
 	    String view = "login_msg.jsp";
 	    RequestDispatcher rd = request.getRequestDispatcher(view);
 	    rd.forward(request, response);

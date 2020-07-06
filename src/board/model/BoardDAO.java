@@ -11,7 +11,7 @@ import java.sql.*;
 import domain.Board;
 import domain.BoardQ;
 import domain.Member;
-
+import board.vo.*;
 public class BoardDAO {
 	private DataSource ds;
 	
@@ -21,7 +21,7 @@ public class BoardDAO {
 			Context envContext  = (Context)initContext.lookup("java:/comp/env");
 			ds = (DataSource)envContext.lookup("jdbc/myoracle");
 		}catch(NamingException ne) {
-			System.out.println("Apache DBCP °´Ã¼(jdbc/myoracle)¸¦ Ã£Áö ¸øÇÔ");
+			System.out.println("Apache DBCP ï¿½ï¿½Ã¼(jdbc/myoracle)ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 	
@@ -58,26 +58,22 @@ public class BoardDAO {
 		}
 	}
 	
-	//Ãß°¡
+	//ï¿½ß°ï¿½
 	ArrayList<Board> list(int currentPage, int pageSize){
 		ArrayList<Board> list = new ArrayList<Board>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = BoardSQL.LIST;
+		String sql = BoardSQL.PAGE;
 		
 		int startRow = (currentPage-1)*pageSize;
 		int endRow = currentPage*pageSize; 
-		try {
-			System.out.println("Err-2");			
-			con = ds.getConnection();
-			System.out.println("Err-3");			
+		try {					
+			con = ds.getConnection();						
 			pstmt = con.prepareStatement(sql);
-//			pstmt.setInt(1, startRow);
-//			pstmt.setInt(2, endRow);
-			System.out.println("Err-4");			
-			rs = pstmt.executeQuery();
-			System.out.println("Err-5");			
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);						
+			rs = pstmt.executeQuery();			
 			while(rs.next()) {
 				long b_seq = rs.getLong("B_SEQ");
 				String b_subject = rs.getString("B_SUBJECT");
@@ -87,7 +83,6 @@ public class BoardDAO {
 				Board b = new Board(b_seq, b_subject, b_content, b_date, b_count);
 				list.add(b);
 			}
-			System.out.println("Err-1");
 			return list;
 		}catch(SQLException se) {
 			System.out.println("SQLException : "+se);
@@ -100,6 +95,7 @@ public class BoardDAO {
 			}catch(SQLException se) {}
 		}
 	}
+	
 	long getTotalCount() {
 		Connection con = null;
 		Statement stmt = null;
@@ -156,28 +152,6 @@ public class BoardDAO {
 					}catch(SQLException se){}
 				}  
 	 }
-	boolean insert(Board board) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = BoardSQL.INSERT;
-		try {
-			con = ds.getConnection();
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, board.getB_subject());
-			pstmt.setString(2, board.getB_content());
-			pstmt.setInt(3, board.getB_count());
-			int i = pstmt.executeUpdate();
-			if(i>0) return true;
-			else return false;
-		}catch(SQLException se) {
-			return false;
-		}finally {
-			try {
-				if(pstmt != null) pstmt.close();
-				if(con != null) con.close();
-			}catch(SQLException se) {}
-		}
-	}
 	
 	Board getBoard(long b_seq) {
 		Connection con = null;
@@ -259,5 +233,49 @@ public class BoardDAO {
 		}
 	}
 
+	 void upcount(long b_seq) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = BoardSQL.UPCOUNT;
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setLong(1, b_seq);
+			pstmt.executeUpdate();
+		}catch(SQLException se) {
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch(SQLException se) {}
+		}
+		
+	}
+
+	 boolean writeOk(Board board) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			String sql = BoardSQL.INSERT;
+			System.out.println("board sub: "+board.getB_subject());
+			System.out.println("board con: "+board.getB_content());
+			try {
+				con = ds.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, board.getB_subject());
+				pstmt.setString(2, board.getB_content());
+				int i = pstmt.executeUpdate();
+				if(i>0) return true;
+				else return false;
+			}catch(SQLException se) {
+				System.out.println("writeOk : "+se);
+				return false;
+			}finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(con != null) con.close();
+				}catch(SQLException se) {}
+			}
+		
+	}
 }
 

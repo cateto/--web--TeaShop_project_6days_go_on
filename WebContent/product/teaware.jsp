@@ -1,5 +1,5 @@
 <%@page contentType="text/html;charset=utf-8"
-import="java.util.*, domain.ProductTW"%>
+import="java.util.*, domain.Product"%>
 <jsp:include page="../etc/frame-ver2.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -109,24 +109,24 @@ body {
           
           
 <%
-	ArrayList<ProductTW> listTW = (ArrayList<ProductTW>)request.getAttribute("listTW");
+	ArrayList<Product> listTW = (ArrayList<Product>)request.getAttribute("listTW");
 	if(listTW !=null && listTW.size()!=0){
-	    for(ProductTW product : listTW){
+	    for(Product product : listTW){
 %>
 			<div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
-              <a href="product.do?m=detailTW&tw_code=<%=product.getTw_code()%>" class="thumbnail d-block mb-4"><img src="<%=product.getTw_img()%>" alt="Image" class="img-fluid"></a>
+              <a href="product.do?m=detail&p_code=<%=product.getP_code()%>" class="thumbnail d-block mb-4"><img src="<%=product.getP_img()%>" alt="Image" class="img-fluid"></a>
 
               <div>
-                <h3 class="heading mb-1"><a href="product.do?m=detailTW&tw_code=<%=product.getTw_code()%>"><%=product.getTw_name()%></a></h3>
-                <span class="price"><%=product.getTw_price()%>원</span>
+                <h3 class="heading mb-1"><a href="product.do?m=detail&p_code=<%=product.getP_code()%>"><%=product.getP_name()%></a></h3>
+                <span class="price"><%=product.getP_price()%>원</span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><a href="product.do?m=detailTW&tw_code=<%=product.getTw_code()%>"><%=product.getTw_name()%></a></h3>
-                <span class="price d-block"><%=product.getTw_price()%>원</span>
+                <h3 class="heading-2"><a href="product.do?m=detail&p_code=<%=product.getP_code()%>"><%=product.getP_name()%></a></h3>
+                <span class="price d-block"><%=product.getP_price()%>원</span>
                 
                 <div class="rating">
                   <span class="icon-star"></span>
@@ -135,8 +135,13 @@ body {
                   <span class="icon-star"></span>
                   <span class="icon-star-o"></span>
                 </div>
+                <c:if test="${!empty sessionScope.loginUser}"> 
+                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
+                </c:if>
                 
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                <c:if test="${empty sessionScope.loginUser}"> 
+                <a href="../login/login.do?m=form" class="btn add" onclick='alert("로그인이 필요한 서비스입니다.")'><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
+                </c:if>
               </div>
             </div>
             </div>

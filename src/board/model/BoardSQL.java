@@ -6,8 +6,9 @@ public class BoardSQL {
 	final static String DEL = "delete from BOARD where b_SEQ=?";
 	final static String UPDATE = "Update BOARD set b_subject=?, b_content=?, b_date=SYSDATE where b_seq=?";
 	//public static String LIST_PAGE = null;
-	public static String COUNT = "select B_count from BOARD";
-	public static String SELECT_COUNT = "select count(*) from BOARD";
-	public static String CONTENT = "select * from BOARD where B_SEQ=?";
-	
+	final static String COUNT = "select B_count from BOARD";
+	final static String SELECT_COUNT = "select count(*) from BOARD";
+	final static String CONTENT = "select * from BOARD where B_SEQ=?";
+	final static String UPCOUNT = "update BOARD set b_COUNT=b_COUNT+1 where B_SEQ=?";
+	final static String PAGE = "select * from (select ROWNUM rnum, aa.* from (select * from BOARD order by B_SEQ desc) aa) where rnum>? and rnum<=?";
 }

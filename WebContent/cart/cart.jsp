@@ -43,22 +43,19 @@ import="java.util.*, domain.Cart"%>
 <!-- 계산 식 -->
                    
 <script>
-    window.onload = function() {
-   		//getResult();
-    }       
-    
-	
+
 	
 	function add(i){
 		var q = document.getElementById("quantity"+i).value;
-		console.log(q);
+		//console.log(q);
 		q++;
-		console.log(q);
+		//console.log(q);
 		document.getElementById("quantity"+i).innerTEXT = q;
 
 		var price = document.getElementById("price"+i).innerHTML;
 		result = price*q;
-		document.getElementById("result"+i).innerText = result;
+		document.getElementById("result"+i).innerHTML = result;
+		return result;
 	}
 	
 	function minus(i){
@@ -70,21 +67,18 @@ import="java.util.*, domain.Cart"%>
 		
 		var price = document.getElementById("price"+i).innerHTML;
 		result = price*q;
-		document.getElementById("result"+i).innerText = result;
+		document.getElementById("result"+i).innerHTML = result;
+		return result;
 	}
 	
-	function getResult(){
-		var price = document.getElementById("price").innerHTML;
-		console.log(price);
+	function getTotal(list_size){
 		
-		var q = document.getElementById("quantity").value;
-		console.log(q);
-				
-		result = q*price;
-		console.log(result);
-		
-		document.getElementById("result").innerText = result;
-		//return result;
+		total = 0
+		for(var i=0;i<list_size;i++){
+			total += parseInt(document.getElementById("result"+i).innerHTML);
+			console.log(total);
+		}
+		document.getElementById("total").innerHTML = total;
 	}     
                     
 </script>       
@@ -124,12 +118,14 @@ import="java.util.*, domain.Cart"%>
                 <tbody>
 <%
 	ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cart");
+	long total = 0;
 	if(cartList !=null && cartList.size()!=0){
 		int i=0;
+		
 	    for(Cart cart : cartList){
 %>      
 
-                  <tr>
+                  <tr align="center">
                     <td class="product-thumbnail">
                       <img src="<%=cart.getP_img()%>" alt="Image" class="img-fluid">
                     </td>
@@ -138,33 +134,34 @@ import="java.util.*, domain.Cart"%>
                     </td>
                     <td><span id="price<%=i%>"><%=cart.getP_price()%></span><span>원</span></td>
                     <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
+                      <div class="input-group mb-4" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button" onclick="minus(<%=i%>)">&minus;</button>
+                          <button class="btn btn-outline-primary js-btn-minus" type="button" onclick="minus(<%=i%>); getTotal(<%=cartList.size()%>)">&minus;</button>
                         </div>
                         <input type="text" id="quantity<%=i%>"class="form-control text-center border mr-0" value="<%=cart.getP_amount() %>" placeholder=""
                           aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button" onclick="add(<%=i%>)">&plus;</button>
+                          <button class="btn btn-outline-primary js-btn-plus" type="button" onclick="add(<%=i%>); getTotal(<%=cartList.size()%>)">&plus;</button>
                         </div>
                       </div>
                     </td>
 
-                    <td><span id="result<%=i%>"><!-- <script>document.getElementById('result').innerTEXT=getResult()</script> --><%=cart.getP_price()*cart.getP_amount() %></span></td>
+                    <td><span id="result<%=i%>"><%=cart.getP_price()*cart.getP_amount() %></span></td>
                     <td><a href="cart.do?m=cleanProduct&code=<%=cart.getP_code()%>" class="btn btn-primary height-auto btn-sm">X</a></td>
                   </tr>
+                  
 <%
-	i++;
+		i++;
 		}
 	}else{
 %>
 			<tr>
 				<td align='center' colspan="6" >장바구니가 비어있습니다.</td>
 			</tr>
-<%
+ <%
+	
 	}
-%>	    
-
+%>	  
                 </tbody>
               </table>
             </div>
@@ -212,21 +209,22 @@ import="java.util.*, domain.Cart"%>
                     <span class="text-black">할인 금액</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black">0</strong>
                   </div>
                 </div>
+                  
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">합계</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black"><span id="total"></span></strong>
                   </div>
                 </div>
-    
+   
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='checkout.html'">구매하러 가기</button>
+                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='../order/order.do?m=checkout'">구매하러 가기</button>
                   </div>
                 </div>
               </div>
@@ -243,7 +241,12 @@ import="java.util.*, domain.Cart"%>
 
   <!-- .site-wrap -->
 
-
+<!-- onload -->
+<script>
+	window.onload = function(){
+		getTotal(<%=cartList.size()%>);
+	}
+</script>
    
 
   <!-- loader -->

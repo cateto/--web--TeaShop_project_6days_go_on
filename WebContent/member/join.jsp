@@ -136,7 +136,15 @@
 			return false;
 		}
 		
-		
+		var emailval = f.email.value;
+		emailval = trim(emailval);
+		if(emailval.length == 0){
+			alert("이메일을 입력하세요.");
+
+			f.email.value = "";
+			f.email.focus();
+			return false;
+		}
 		
 		
 
@@ -167,9 +175,8 @@
 	
 	function idCheck(){ //새창 만들기 
 		window.open("idCheckForm.jsp", "idwin", "width=400, height=350");
-		
 		var f=document.getElementById("id");
-		f.readOnly = false;
+		
 	}
 
 	</script>
@@ -236,7 +243,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" onload="document.f.id.focus()">
 
   <div class="site-wrap">
 
@@ -286,8 +293,8 @@
     
               <div class="form-group row mb-5">
                 <div class="col-md-6">
-                  <label for="c_email_address" class="text-black">이메일</label>
-                  <input type="text" class="form-control"  name="email" placeholder="ex) mail@email.com">
+                  <label for="c_email_address" class="text-black">이메일 <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control"  id="email" name="email" placeholder="ex) mail@email.com">
                 </div>
                 <div class="col-md-6">
                   <label for="c_phone" class="text-black">전화번호 </label>

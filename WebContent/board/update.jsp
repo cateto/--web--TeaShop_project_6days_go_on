@@ -116,8 +116,9 @@ body {
 				</div>
 
 			<div >
-				<c:if test="${sessionScope.loginUser eq sessionScope.Admin}">
+				<c:if test="${!empty sessionScope.Admin}">
 				<input type="submit" class="btn btn-sm btn-primary" id="btnSave" value ="저장">
+				
 				
 				</c:if>
 				<a href="board.do" class="btn btn-sm btn-primary id="btnList">목록</button></a>

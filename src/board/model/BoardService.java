@@ -21,18 +21,13 @@ public class BoardService {
 		System.out.println("");
 		ArrayList<Board> list = dao.list(currentPage, pageSize);
 		long totalCount = dao.getTotalCount();
-		ListResult r = new ListResult(currentPage, totalCount, pageSize, list);
-		
-		return r;
+		return new ListResult(currentPage, totalCount, pageSize, list);
 	}
 	public ArrayList<Board> listS(){
 		return dao.list();
 	}
 	public ArrayList<Board> contentS(long seq){
 		return dao.content(seq);
-	}
-	public boolean insertS(Board board) {
-		return dao.insert(board);
 	}
 	public Board getBoardS(long seq) {
 		return dao.getBoard(seq);
@@ -42,5 +37,11 @@ public class BoardService {
 	}
 	public void delS(long seq){
 		dao.del(seq);
+	}
+	public void upcountS(long seq) {
+		dao.upcount(seq);	
+	}
+	public boolean writeOk(Board board) {
+		return dao.writeOk(board);
 	}
 }

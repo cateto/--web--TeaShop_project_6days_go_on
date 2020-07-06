@@ -31,7 +31,7 @@
         <div class="row align-items-center">
           <div class="col-12 text-center">
             <a href="../index.do" class="site-logo">
-              <img src="../images/bintealogoo.png" alt="Image" class="img-fluid">
+              <img src="../images/bintealogosss.png" alt="Image" class="img-fluid">
             </a>
           </div>
           
@@ -66,14 +66,14 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;
                               
-                        
+        <c:if test="${!empty sessionScope.loginUser}">                          
                           <a href="../cart/cart.do?m=cart">
       <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_off.png" 
       onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_on.png'" 
       onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_off.png'";
       border=0 align=right alt="" style="max-width:100%"/>
     </a>
-
+	
     <a href="../shop/confirm_login.html?type=myorder">
       <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_off.png" 
       onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_on.png'" 
@@ -87,6 +87,32 @@
       onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_off.png'";
       border=0 align=right alt="" style="max-width:100%"/>
       </a>
+      
+      </c:if>
+      
+        <c:if test="${empty sessionScope.loginUser}">                          
+                          <a href="../login/login.do?m=form">
+      <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_off.png" 
+      onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_on.png'" 
+      onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right01_off.png'";
+      border=0 align=right alt="" style="max-width:100%" onclick='alert("로그인이 필요한 서비스입니다.")'/>
+    </a>
+	
+    <a href="../login/login.do?m=form">
+      <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_off.png" 
+      onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_on.png'" 
+      onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_off.png'";
+      border=0 align=right alt="" style="max-width:100%" onclick='alert("로그인이 필요한 서비스입니다.")'/>
+    </a>
+
+    <a href="../login/login.do?m=form">
+      <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_off.png" 
+      onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_on.png'" 
+      onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right03_off.png'";
+      border=0 align=right alt="" style="max-width:100%" onclick='alert("로그인이 필요한 서비스입니다.")'/>
+      </a>
+      
+      </c:if>
               </ul>                                                                                                                                                                                                                                                                                  
             </nav>
 

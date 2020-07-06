@@ -135,8 +135,13 @@ body {
                   <span class="icon-star"></span>
                   <span class="icon-star-o"></span>
                 </div>
+                <c:if test="${!empty sessionScope.loginUser}"> 
+                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
+                </c:if>
                 
-                <a href="cart.html" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                <c:if test="${empty sessionScope.loginUser}"> 
+                <a href="../login/login.do?m=form" class="btn add" onclick='alert("로그인이 필요한 서비스입니다.")'><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
+                </c:if>
               </div>
             </div>
             </div>

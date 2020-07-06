@@ -81,27 +81,27 @@
           <div class="col-lg-4 mb-5 col-md-6">
 
             <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_2.png" alt="Image" class="img-fluid"></a>
+              <a href="product/product.do?m=detail&p_code=6" class="thumbnail d-block mb-4"><img src="images/TEA6.png" alt="Image" class="img-fluid"></a>
               <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
+                <h3 class="heading mb-1"><a href="#">삼다연제주영귤 20입</a></h3>
+                <span class="price">18400원</span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block">$629.00</span>
+                <h3 class="heading-2"><a href="#">삼다연제주영귤 20입</a></h3>
+                <span class="price d-block">18400원</span>
                 
                 <div class="rating">
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
+                  <span class="icon-star"></span>
                 </div>
                 
-                <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                <a href="cart/cart.do?m=PutIntoCart&p_code=6" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
               </div>
             </div>
 
@@ -109,54 +109,54 @@
 
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_3.png" alt="Image" class="img-fluid"></a>
+              <a href="product/product.do?m=detail&p_code=1" class="thumbnail d-block mb-4"><img src="images/TEA1.png" alt="Image" class="img-fluid"></a>
               <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
+                <h3 class="heading mb-1"><a href="#">달빛걷기 20입</a></h3>
+                <span class="price">23000원</span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
+                <h3 class="heading-2"><a href="#">달빛걷기 20입</a></h3>
+                <span class="price d-block"><del>30000원</del> 23000원</span>
                 
                 <div class="rating">
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
+                  <span class="icon-star"></span>
                 </div>
                 
-                <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                <a href="cart/cart.do?m=PutIntoCart&p_code=1" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
               </div>
             </div>
           </div>
 
           <div class="col-lg-4 mb-5 col-md-6">
             <div class="wine_v_1 text-center pb-4">
-              <a href="shop-single.html" class="thumbnail d-block mb-4"><img src="images/wine_1.png" alt="Image" class="img-fluid"></a>
+              <a href="product/product.do?m=detail&p_code=7" class="thumbnail d-block mb-4"><img src="images/TEA7.png" alt="Image" class="img-fluid"></a>
               <div>
-                <h3 class="heading mb-1"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price">$629.00</span>
+                <h3 class="heading mb-1"><a href="#">웨딩그린티 20입</a></h3>
+                <span class="price">23000원</span>
               </div>
               
 
               <div class="wine-actions">
                   
-                <h3 class="heading-2"><a href="#">Trius Cabernet France 2011</a></h3>
-                <span class="price d-block"><del>$900.00</del> $629.00</span>
+                <h3 class="heading-2"><a href="#">웨딩그린티 20입</a></h3>
+                <span class="price d-block"><del>30000원</del>23000원</span>
                 
                 <div class="rating">
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
                   <span class="icon-star"></span>
-                  <span class="icon-star-o"></span>
+                  <span class="icon-star"></span>
                 </div>
                 
-                <a href="#" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
+                <a href="cart/cart.do?m=PutIntoCart&p_code=7" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
               </div>
             </div>
           </div>
@@ -183,24 +183,25 @@
         <div class="owl-carousel owl-slide-3 owl-slide">
         
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Collin Miller</p>
+            <img src="images/animal_1.jpg" alt="Image">
+            <p>&ldquo;커피는 시간을 주지만 물리적인 시간이 아니라 본연의 자신이 될수있는 기회를 준다는 의미이다. 그러므로 한잔더 마시기를  &rdquo;</p>
+            <p class="small text-primary">&mdash;노을이</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_2.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Harley Perkins</p>
+            <img src="images/animal_3.jpg" alt="Image">
+            <p>&ldquo;티파티는 영혼의 온천같은 역할을 해준다. 차를 마시는동안 우리는 근심과 일을 잠시 잊는다. 바쁜사람들도 업무를 잊는다. 스트레스는 어느새 사라지며 감각이 살아난다. 
+            &rdquo;</p>
+            <p class="small text-primary">&mdash;바둑이</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_3.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Levi Morris</p>
+            <img src="images/animal_5.jpg" alt="Image">
+            <p>&ldquo;만약 당신이 우울하다면 차는 당신을 위로해줄 것이고, 만약 당신이 지치고 피곤하다면 차는 당신을 진정시켜줄것이다. &rdquo;</p>
+            <p class="small text-primary">&mdash;시루</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Allie Smith</p>
+            <img src="images/animal_6.jpg" alt="Image">
+            <p>&ldquo;차는 모든계절에 어울리는 식사다. 그리고 차는 어떤경우에나 어울린다. &rdquo;</p>
+            <p class="small text-primary">&mdash;감자</p>
           </blockquote>
         
         </div>
@@ -212,40 +213,34 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 section-title text-center mb-5">
-            <h2 class="d-block">Wine's Blog</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, perspiciatis!</p>
-            <p><a href="#">View All Products <span class="icon-long-arrow-right"></span></a></p>
+            <h2 class="d-block">Tea's Blog</h2>
+            <p>차에 관한 다양한 이야기를 소개합니다! Enjoy Together!</p>
+            
           </div>
         </div>
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0 col-md-6">
             <div class="post-entry-1">
-              <a href="post-single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
-              <h2><a href="blog-single.html">What You Need To Know About Premium Rosecco</a></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-              <div class="post-meta">
-                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-              </div>
+              <a href="https://www.ilovegreentea.co.uk/%ef%bb%bfgreen-tea-the-ancient-secret-to-more-energy/"><img src="images/imgs_1.png" alt="Image" class="img-fluid"></a>
+              <h2><a href="https://www.ilovegreentea.co.uk/%ef%bb%bfgreen-tea-the-ancient-secret-to-more-energy/">﻿GREEN TEA – THE ANCIENT SECRET TO MORE ENERGY</a></h2>
+              <p>에너지 부스트, 졸음이 사라지는 녹차 에너지 음료 레시피를 보려면 Kineta Matcha 블로그를 방문하십시오.</p>
+
             </div>
           </div>
           <div class="col-lg-4 mb-4 mb-lg-0 col-md-6">
             <div class="post-entry-1">
-              <a href="post-single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
-              <h2><a href="blog-single.html">What You Need To Know About Premium Rosecco</a></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-              <div class="post-meta">
-                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-              </div>
+              <a href="https://www.ilovegreentea.co.uk/4-reasons-drink-green-tea-summer/"><img src="images/imgs_2.png" alt="Image" class="img-fluid"></a>
+              <h2><a href="https://www.ilovegreentea.co.uk/4-reasons-drink-green-tea-summer/">4 Reasons Why You Should Drink Green Tea During The Summer</a></h2>
+              <p>더운 여름철에는 대부분의 사람들이 자동으로 차가운 음료를 마시고 식 히지 만 뜨거운 녹차 한 잔이 더 상쾌해질 수 있다는 사실에 놀랄 것입니다. </p>
+              
             </div>
           </div>
           <div class="col-lg-4 mb-4 mb-lg-0 col-md-6">
             <div class="post-entry-1">
-              <a href="post-single.html"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
-              <h2><a href="blog-single.html">What You Need To Know About Premium Rosecco</a></h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-              <div class="post-meta">
-                <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
-              </div>
+              <a href="https://www.ilovegreentea.co.uk/difference-green-white-black-tea/"><img src="images/imgs_3.png" alt="Image" class="img-fluid"></a>
+              <h2><a href="https://www.ilovegreentea.co.uk/difference-green-white-black-tea/">WHAT IS THE DIFFERENCE BETWEEN GREEN, WHITE & BLACK TEA?</a></h2>
+              <p>오랫동안 차를 마시는 사람들조차도 녹차, 백차 및 홍차가 모두 같은 출처에서 나온다는 것을 인식하지 못할 수도 있습니다.</p>
+              
             </div>
           </div>
         </div>

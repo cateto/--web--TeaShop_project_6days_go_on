@@ -127,7 +127,7 @@ body {
         <div class="row justify-content-center text-center align-items-center">
           <div class="col-md-8">
             <span class="sub-title">BINTEA</span>
-            <h2>BINTEASHOP 공지사항</h2>
+            <h2>NOTICE</h2>
           </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ body {
 
           <div class="col-lg-12">
             <div class="section-title mb-5">
-              <h2>공지사항 BOARD</h2>
+              <h2>NOTICE</h2>
             </div>
             </div>
             </div>
@@ -192,13 +192,16 @@ body {
 			
 
 			<div style="margin-top : 20px" align='right'>
-
-				<a href='board.do?m=update&seq=<%=board.getB_seq()%>'><input type="button" class="btn pull-left" id="btnUpdate" value="수정"></a>
-
+				<div>
+				<c:if test="${!empty sessionScope.Admin}">
+				<a href='board.do?m=update&seq=<%=board.getB_seq()%>'><input type="button" class="btn pull-right" id="btnUpdate" value="수정"></a>
+				
+				
 				<a href='board.do?m=delete&seq=<%=board.getB_seq()%>'><input type="button" class="btn pull-right" id="btnDelete" value="삭제"></a>
-
+				</c:if>
+				
 				<button type="button" class="btn pull-center" id="btnList">목록</button>
-
+				
 			</div>
 
 		</div>

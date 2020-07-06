@@ -62,12 +62,16 @@ class CartDAO {
 	    String sql = CartSQL.INSERT;
 	    try {
 	    	con = ds.getConnection();
+	    	System.out.println(1);
 	    	pstmt = con.prepareStatement(sql);
 	    	pstmt.setString(1, m_id);
+	    	System.out.println(m_id);
 	    	pstmt.setLong(2, p_amount);
+	    	System.out.println(p_amount);
 	    	pstmt.setLong(3, p_code);
-	    	
+	    	System.out.println(p_code);
 	    	int i = pstmt.executeUpdate();
+	    	System.out.println(4);
 	    	if(i>0) return true;
 			else return false;
 	    }catch(SQLException se) {

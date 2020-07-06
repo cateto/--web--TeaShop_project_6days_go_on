@@ -81,7 +81,14 @@
               </div>
     
             </div>
-            <p><a href="../cart.html" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+                           
+                 <c:if test="${!empty sessionScope.loginUser}"> 
+            <p><a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+			 </c:if>
+                 <c:if test="${empty sessionScope.loginUser}"> 
+            <p><a href="../login/login.do?m=form" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary" onclick='alert("로그인이 필요한 서비스입니다.")'>Add To Cart</a></p>
+			 </c:if>
+
 <%
 		}
 	}else{
@@ -93,20 +100,46 @@
 	}
 %>
 
+
           </div>
         </div>
+        
       </div>
-    </div>
-    <div class="hero-2" style="background-image: url('../images/tea_2.jpg');">
-     <div class="container">
-        <div class="row justify-content-center text-center align-items-center">
-          <div class="col-md-8">
-            <span class="sub-title">Welcome</span>
-            <h2>Wines For Everyone</h2>
-          </div>
-        </div>
+      
+      
+      <div>
+      <p>
+      </p>
+      <p>
+      </p>
       </div>
-    </div>
+      
+      
+    <!-- 여기서부터 -->      
+
+        <div class="info" align="center">
+        <%	
+
+    ArrayList<Product> content = (ArrayList<Product>)request.getAttribute("contents");
+    if(content !=null && content.size()!=0){
+        for(Product product : content){
+%>   
+
+<img src='<%=product.getP_info()%>' style="max-width: 1100px"align="center">
+
+<%
+		}
+	}else{
+%>
+			<tr>
+				<td align='center' colspan="4" >데이터가 없음</td>
+			</tr>
+<%
+	}
+%>
+<!-- 여기까지 -->
+</div>
+      
 
 
   

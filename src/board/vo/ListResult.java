@@ -1,22 +1,20 @@
 package board.vo;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import java.util.List;
 import domain.Board;
 
 
 public class ListResult {
-	private long currentPage;
+	private int currentPage;
 	private	long totalCount;
-	private	long pageSize;
+	private	int pageSize;
 	private List<Board> list;
 	private long totalPageCount;
 	
 	public ListResult() {}
 
-	public ListResult(long currentPage, long totalCount, long pageSize, List<Board> list) {
-		super();
+	public ListResult(int currentPage, long totalCount, int pageSize, List<Board> list) {
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
 		this.pageSize = pageSize;
@@ -32,11 +30,11 @@ public class ListResult {
 		
 	}
 
-	public long getCurrentPage() {
+	public int getCurrentPage() {
 		return currentPage;
 	}
 
-	public void setCurrentPage(long currentPage) {
+	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
 
@@ -44,15 +42,15 @@ public class ListResult {
 		return totalCount;
 	}
 
-	public void setTotalCount(long totalCount) {
+	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
 
-	public long getPageSize() {
+	public int getPageSize() {
 		return pageSize;
 	}
 
-	public void setPageSize(long pageSize) {
+	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
 
