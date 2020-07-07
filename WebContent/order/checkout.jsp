@@ -43,55 +43,50 @@ import="java.util.*, domain.Member, domain.Cart"%>
 <!-- 계산 식 -->
                    
 <script>
-    window.onload = function() {
-   		//getResult();
-    }       
-    
-	
-	
-	function add(i){
-		var q = document.getElementById("quantity"+i).value;
-		console.log(q);
-		q++;
-		console.log(q);
-		document.getElementById("quantity"+i).innerTEXT = q;
 
-		var price = document.getElementById("price"+i).innerHTML;
-		result = price*q;
-		document.getElementById("result"+i).innerText = result;
-	}
-	
-	function minus(i){
-		var q = document.getElementById("quantity"+i).value;
-		console.log(q);
-		q--;
-		console.log(q);
-		document.getElementById("quantity"+i).innerTEXT = q;
+
+	function SetValue(list_size){
 		
-		var price = document.getElementById("price"+i).innerHTML;
-		result = price*q;
-		document.getElementById("result"+i).innerText = result;
-	}
-	
-	function getResult(){
-		var price = document.getElementById("price").innerHTML;
-		console.log(price);
+		total = parseInt(sessionStorage.getItem("OrderTotal"));
+		total +=2500;
+		var pName = new Array();
+		var pAmount = new Array();
+		var pResult = new Array();
 		
-		var q = document.getElementById("quantity").value;
-		console.log(q);
-				
-		result = q*price;
-		console.log(result);
+		pName = sessionStorage.getItem("PNames");
+		pAmount = sessionStorage.getItem("PAmounts");
+		pResult = sessionStorage.getItem("PResults");
 		
-		document.getElementById("result").innerText = result;
-		//return result;
-	}     
+		pName = pName.split(',');
+		pAmount = pAmount.split(',');
+		pResult = pResult.split(',');
+		console.log(total);
+		console.log(pName);
+		console.log(pAmount);
+		console.log(pResult);
+		
+		for(var i=0;i<list_size;i++){
+
+			tempname = pName[i];
+			document.getElementById("pname"+i).innerHTML = tempname;
+			console.log(tempname);
+			tempamount = pAmount[i];
+			document.getElementById("quantity"+i).innerHTML = tempamount;
+			console.log(tempamount);
+			tempresult = pResult[i];
+			document.getElementById("result"+i).innerHTML = tempresult;
+			console.log(tempresult);
+		}
+		
+		document.getElementById("total").innerHTML = total;
+
+	}     	
                     
 </script>       
      
 <% 
 	Member member = (Member)session.getAttribute("loginUser");
-
+	
 %>
 
 </head>
@@ -106,25 +101,25 @@ import="java.util.*, domain.Member, domain.Cart"%>
         <div class="row mb-5">
           <div class="col-md-12">
             <div class="bg-light rounded p-3">
-              <p class="mb-0">Returning customer? <a href="#" class="d-inline-block">Click here</a> to login</p>
+              <p class="mb-0">주문을 수정하시겠어요? <a href="javascript:history.back()" class="d-inline-block">여기</a> 를 누르면 이전 페이지로 돌아갑니다.</p>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black font-heading-serif">Billing Details</h2>
+            <h2 class="h3 mb-3 text-black font-heading-serif">주문 상세정보</h2>
             <div class="p-3 p-lg-5 border">
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <label for="clientName" class="text-black">Name <span class="text-danger">*</span></label>
+                  <label for="clientName" class="text-black">이름 <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="clientName" name="clientName" value="<%=member.getM_name()%>">
                 </div>
               </div>
     
               <div class="form-group row">
                 <div class="col-md-12">
-                  <label for="clientAddress" class="text-black">Address <span class="text-danger">*</span></label>
+                  <label for="clientAddress" class="text-black">주소 <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="clientAddress" name="clientAddress" value="<%=member.getM_addr()%>">
                 </div>
               </div>
@@ -136,12 +131,12 @@ import="java.util.*, domain.Member, domain.Cart"%>
     
               <div class="form-group row mb-5">
                 <div class="col-md-6">
-                  <label for="clientEmail" class="text-black">Email Address <span class="text-danger">*</span></label>
+                  <label for="clientEmail" class="text-black">Email <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="clientEmail" name="clientEmail"
                   value="<%=member.getM_email()%>">
                 </div>
                 <div class="col-md-6">
-                  <label for="clientPhone" class="text-black">Phone <span class="text-danger">*</span></label>
+                  <label for="clientPhone" class="text-black">전화번호 <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="clientPhone" name="clientPhone" value="<%=member.getM_phone()%>">
                 </div>
               </div>
@@ -157,31 +152,31 @@ import="java.util.*, domain.Member, domain.Cart"%>
     
 					<div class="form-group row">
                 <div class="col-md-12">
-                  <label for="clientName" class="text-black">Name <span class="text-danger">*</span></label>
+                  <label for="clientName" class="text-black">이름 <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="clientName" name="clientName">
                 </div>
               </div>
     
               <div class="form-group row">
                 <div class="col-md-12">
-                  <label for="clientAddress" class="text-black">Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="clientAddress" name="clientAddress" placeholder="Street address">
+                  <label for="clientAddress" class="text-black">주소 <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="clientAddress" name="clientAddress" placeholder="시, 군, 구 및 도로명 주소">
                 </div>
               </div>
     
               <div class="form-group">
-                <input type="text" class="form-control" id="clientAddress2" name="clientAddress2" placeholder="Apartment, suite, unit etc. (optional)">
+                <input type="text" class="form-control" id="clientAddress2" name="clientAddress2" placeholder="아파트 동호수 이하 상세 주소">
               </div>
 
     
               <div class="form-group row mb-5">
                 <div class="col-md-6">
-                  <label for="clientEmail" class="text-black">Email Address <span class="text-danger">*</span></label>
+                  <label for="clientEmail" class="text-black">Email <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="clientEmail" name="clientEmail">
                 </div>
                 <div class="col-md-6">
-                  <label for="clientPhone" class="text-black">Phone <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="clientPhone" name="clientPhone" placeholder="Phone Number">
+                  <label for="clientPhone" class="text-black">전화번호 <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="clientPhone" name="clientPhone" placeholder="ex) 010-0000-0000">
                 </div>
               </div>
     
@@ -191,9 +186,9 @@ import="java.util.*, domain.Member, domain.Cart"%>
               </div>
     
               <div class="form-group">
-                <label for="orderNotes" class="text-black">Order Notes</label>
+                <label for="orderNotes" class="text-black">주문 메모</label>
                 <textarea name="orderNotes" id="orderNotes" cols="30" rows="5" class="form-control"
-                  placeholder="Write your notes here..."></textarea>
+                  placeholder="여기에 주문에 관해 하실 말씀을 적어주세요..."></textarea>
               </div>
     
             </div>
@@ -202,15 +197,15 @@ import="java.util.*, domain.Member, domain.Cart"%>
     
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black font-heading-serif">Coupon Code</h2>
+                <h2 class="h3 mb-3 text-black font-heading-serif">쿠폰</h2>
                 <div class="p-3 p-lg-5 border">
     
-                  <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
+                  <label for="c_code" class="text-black mb-3">쿠폰이 있으시면, 쿠폰 코드를 입력해주세요.</label>
                   <div class="input-group w-75">
                     <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code"
                       aria-describedby="button-addon2">
                     <div class="input-group-append">
-                      <button class="btn btn-primary btn-sm rounded px-4" type="button" id="button-addon2">Apply</button>
+                      <button class="btn btn-primary btn-sm rounded px-4" type="button" id="button-addon2">쿠폰 적용</button>
                     </div>
                   </div>
     
@@ -228,25 +223,48 @@ import="java.util.*, domain.Member, domain.Cart"%>
                       <th>Total</th>
                     </thead>
                     <tbody>
+<% 
+	ArrayList<Cart> cartList = (ArrayList<Cart>)session.getAttribute("cart");
+	long total = 0;
+	if(cartList !=null && cartList.size()!=0){
+		int i=0;
+		
+	    for(Cart cart : cartList){
+%>                    
                       <tr>
-                        <td>Bioderma <strong class="mx-2">x</strong> 1</td>
-                        <td>$55.00</td>
+                        <td><span id="pname<%=i%>"></span><strong class="mx-2">x</strong><span id="quantity<%=i%>"></span></td>
+                        <td><span id="result<%=i%>"></span></td>
+                      </tr>
+                      
+<%
+		i++;
+		}
+	}else{
+%>
+			<tr>
+				<td align='center' colspan="2" >담긴 상품이 없습니다.</td>
+			</tr>
+ <%
+	
+	}
+%>	  
+                      <tr>
+                        <td class="text-black font-weight-bold"><strong>배송비</strong></td>
+                        <td class="text-black"><span>2500</span><span>원</span></td>
                       </tr>
                       <tr>
-                        <td>Ibuprofeen <strong class="mx-2">x</strong> 1</td>
-                        <td>$45.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">$350.00</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+                        <td class="text-black font-weight-bold"><strong>합계</strong></td>
+                        <td class="text-black font-weight-bold"><strong><span id="total"></span><span>원</span></strong></td>
                       </tr>
                     </tbody>
                   </table>
-    
+<script>
+
+	window.onload = function(){
+		SetValue(<%=cartList.size()%>);
+	}
+
+</script>    
                   <div class="border mb-3 p-3 rounded">
                     <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button"
                         aria-expanded="false" aria-controls="collapsebank">무통장 입금 확인사항</a></h3>
@@ -280,12 +298,17 @@ import="java.util.*, domain.Member, domain.Cart"%>
                       </div>
                     </div>
                   </div>
-    
+
+<form id="hiddenForm" method="post" action="order.do?m=order">
+	<input id="hiddenPname" type="hidden" name="hiddenPname" value="">
+	<input id="hiddenPamount" type="hidden" name="hiddenPamount" value="">
+	<input id="hiddenPtotal" type="hidden" name="hiddenPtotal" value="">
+   
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='thankyou.jsp'">주문하기</button>
+                    <input type="button" class="btn btn-primary btn-lg btn-block" value="주문하기" onclick="post(<%=cartList.size()%>)">
                   </div>
-    
-                </div>
+</form>  
+               </div>
               </div>
             </div>
     
@@ -294,6 +317,28 @@ import="java.util.*, domain.Member, domain.Cart"%>
         <!-- </form> -->
       </div>
     </div>
+
+<script>
+function post(list_size){
+	pname = document.getElementById("pname0").innerHTML;
+	document.getElementById("hiddenPname").value = pname;
+
+	pamount = 0;
+	for(var i=0;i<list_size;i++){
+		pamount += parseInt(document.getElementById("quantity"+i).innerHTML);
+	}
+	document.getElementById("hiddenPamount").value = pamount;
+	
+	ptotal = document.getElementById("total").innerHTML;
+	
+	document.getElementById("hiddenPtotal").value = ptotal;
+	
+	document.getElementById("hiddenForm").submit();
+	return false;
+}
+
+</script>
+
     
 <jsp:include page="../etc/footer.jsp"/>
 </div>

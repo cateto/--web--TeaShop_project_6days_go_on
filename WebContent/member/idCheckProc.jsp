@@ -6,10 +6,14 @@ pageEncoding="UTF-8" import="member.model.MemberService, member.model.MemberSet"
 <head>
 <meta charset="UTF-8">
 <title>idCheckProc</title>
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+</style>
 </head>
 <body>
 	<div style="text-align: center"></div>
-	<h3>* 아이디 중복 확인 결과 *</h3>
+	<h3 style="font-family: 'Jeju Myeongjo', serif;"> 아이디 중복 확인 결과 </h3>
 	<% //1) 사용가능한 아이디일 경우, 아이디 입력 폼에 넣기 위함 
 		String id = request.getParameter("id");
 		MemberService service = MemberService.getInstance();

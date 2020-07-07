@@ -5,7 +5,11 @@ import="java.util.*"%>
 
 <!DOCTYPE html>
 <html lang="en">
-
+<script>
+	window.onload=function(){
+		sessionStorage.clear();		
+	}
+</script>
 <head>
   <title>BINTEA &mdash; Enjoy your Tea</title>
   <meta charset="utf-8">
@@ -29,7 +33,7 @@ import="java.util.*"%>
   <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
 
   <link rel="stylesheet" href="../css/aos.css">
-  <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+  <link href="../css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 
   <link rel="stylesheet" href="../css/style.css">
 

@@ -31,6 +31,11 @@
 
   <link rel="stylesheet" href="../css/style.css">
 
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+</style>
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -44,22 +49,24 @@
 
         <div class="row">
 
-            <h2 class="h2 mb-3 text-black font-heading-serif">ID 찾기</h2>
+          
+           
          
-            	
-            	<br/><br/><br/>
-            	   <br/>
-            
-            <div class="p-3 p-lg-5 ">
+<div style="padding-top:100px; padding-bottom:50px">
+            <h1 class="text-black" style="font-family: 'Jeju Myeongjo', serif;">[ ID 찾기 결과 ]</h1>
+            <br/>
             <c:if test="${!empty FoundID}">
-				<h3>아이디 찾기 결과 : 당신의 아이디는 ' ${FoundID} ' 입니다.</h3>
+				<h3 style="font-family: 'Jeju Myeongjo', serif;">아이디 찾기 성공</h3><br/><h5 style="font-family: 'Jeju Myeongjo', serif;">당신의 아이디는 <u>' ${FoundID} '</u> 입니다.</h5>
 			</c:if>
 			
 			<c:if test="${empty FoundID}">
-				<h3>아이디 찾기 결과 : 일치하는 아이디를 찾을 수가 없습니다. </h3>
+				<h3 style="font-family: 'Jeju Myeongjo', serif;">아이디 찾기 실패</h3><br/><h5 style="font-family: 'Jeju Myeongjo', serif;">일치하는 아이디를 찾을 수가 없습니다. </h5>
 			</c:if>
 			
-              </div>
+</div>
+            	
+           
+
     
               </div>
              

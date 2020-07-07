@@ -135,13 +135,8 @@ body {
                   <span class="icon-star"></span>
                   <span class="icon-star-o"></span>
                 </div>
-                <c:if test="${!empty sessionScope.loginUser}"> 
-                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
-                </c:if>
                 
-                <c:if test="${empty sessionScope.loginUser}"> 
-                <a href="../login/login.do?m=form" class="btn add" onclick='alert("로그인이 필요한 서비스입니다.")'><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
-                </c:if>
+                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
               </div>
             </div>
             </div>
@@ -165,12 +160,12 @@ body {
       </div>
     </div>
 
-    <div class="hero-2" style="background-image: url('images/hero_2.jpg');">
+    <div class="hero-2" style="background-image: url('../images/tea_4.jpg');">
      <div class="container">
         <div class="row justify-content-center text-center align-items-center">
           <div class="col-md-8">
-            <span class="sub-title">Welcome</span>
-            <h2>Wines For Everyone</h2>
+            <span class="sub-title">BINTEA</span>
+            <h2>PRODUCT <br/> REVIEW</h2>
           </div>
         </div>
       </div>
@@ -181,24 +176,24 @@ body {
         <div class="owl-carousel owl-slide-3 owl-slide">
         
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Collin Miller</p>
+            <img src="../images/TEA5.png" alt="Image">
+            <p>&ldquo;앞으로 차는 BINTEASHOP 에서만 살꺼같습니다. 너무 맛있고 한번 사먹고 바로 재구매 했네요... 서비스도 좋고 맛도 좋고! 사장님 인심도 좋고 완전 일석삼조!! 최고입니다^^&rdquo;</p>
+            <p class="small text-primary">&mdash; 한○○님</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_2.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Harley Perkins</p>
+            <img src="../images/TEA3.png" alt="Image">
+            <p>&ldquo;향과 맛이 좋습니다. 진한 향과 맛을 원하신다면 부족할지 모르지만 맑고 깨끗한 허브차를 원하신다면 또 세련된 맛을 원하신다면 BINTEASHOP이 탁월한 선택일 겁니다&rdquo;</p>
+            <p class="small text-primary">&mdash; 이○○님</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_3.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Levi Morris</p>
+            <img src="../images/TEA4.png" alt="Image">
+            <p>&ldquo;방영진 화이팅!파이팅! 정혜원 화이팅!파이팅!&rdquo;</p>
+            <p class="small text-primary">&mdash; 이○○님</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Allie Smith</p>
+            <img src="../images/TEA1.png" alt="Image">
+            <p>&ldquo;BINTEASHOP 당신들은 그저 빛!!!!&rdquo;</p>
+            <p class="small text-primary">&mdash;리차드빈</p>
           </blockquote>
         
         </div>

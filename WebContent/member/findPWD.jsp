@@ -29,6 +29,11 @@
   <link href="../css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 
   <link rel="stylesheet" href="../css/style.css">
+    
+<style>
+
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+</style>
 
 	<!-- 위에까지는 템플릿 -->
 
@@ -47,7 +52,7 @@
 			
           <div class="col-lg-12">
             <div class="section-title mb-5">
-              <h2>비밀번호 찾기</h2>
+              <h1 style="font-family: 'Jeju Myeongjo', serif;">비밀번호 찾기</h1>
             </div>
   
           </div>

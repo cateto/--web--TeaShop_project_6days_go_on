@@ -135,13 +135,8 @@ body {
                   <span class="icon-star"></span>
                   <span class="icon-star-o"></span>
                 </div>
-                <c:if test="${!empty sessionScope.loginUser}"> 
-                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
-                </c:if>
                 
-                <c:if test="${empty sessionScope.loginUser}"> 
-                <a href="../login/login.do?m=form" class="btn add" onclick='alert("로그인이 필요한 서비스입니다.")'><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
-                </c:if>
+                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
               </div>
             </div>
             </div>
@@ -165,12 +160,12 @@ body {
       </div>
     </div>
 
-    <div class="hero-2" style="background-image: url('images/hero_2.jpg');">
+    <div class="hero-2" style="background-image: url('../images/tea_4.jpg');">
      <div class="container">
         <div class="row justify-content-center text-center align-items-center">
           <div class="col-md-8">
-            <span class="sub-title">Welcome</span>
-            <h2>Wines For Everyone</h2>
+            <span class="sub-title">BINTEA</span>
+            <h2>PRODUCT <br/> REVIEW</h2>
           </div>
         </div>
       </div>
@@ -181,24 +176,24 @@ body {
         <div class="owl-carousel owl-slide-3 owl-slide">
         
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Collin Miller</p>
+            <img src="../images/TEAGIFTSET1.png" alt="Image">
+            <p>&ldquo;선물용으로 딱인것 같아요!! 안에 것도 각각 비닐포자 유대있어서 좋았어요!!&rdquo;</p>
+            <p class="small text-primary">&mdash; 김○○</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_2.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Harley Perkins</p>
+            <img src="../images/TEAGIFTSET3.png" alt="Image">
+            <p>&ldquo;선물용으로 구입했는데 구성도 좋고 포장박스 너무 예뻐서 선물받는 분이 좋아하실꺼같아요 ㅎㅎ&rdquo;</p>
+            <p class="small text-primary">&mdash; 한○○</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_3.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Levi Morris</p>
+            <img src="../images/TEAGIFTSET7.png" alt="Image">
+            <p>&ldquo;포장이 깔끔하고 샘플로 준 차 먹다가 너무 맛있어요!!!&rdquo;</p>
+            <p class="small text-primary">&mdash; 시루맘☆</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Allie Smith</p>
+            <img src="../images/TEAGIFTSET4.png" alt="Image">
+            <p>&ldquo;다양한 차를 접할수 있어서 선물용으로 정말 좋은거같습니다!!!&rdquo;</p>
+            <p class="small text-primary">&mdash; 예빈엄마:hearts:</p>
           </blockquote>
         
         </div>

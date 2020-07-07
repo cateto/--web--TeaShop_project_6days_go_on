@@ -74,7 +74,7 @@
       border=0 align=right alt="" style="max-width:100%"/>
     </a>
 	
-    <a href="../shop/confirm_login.html?type=myorder">
+    <a href="../order/order.do?m=search">
       <img src="http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_off.png" 
       onmouseover="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_on.png'" 
       onmouseout="this.src='http://www.tavalon.co.kr/design/tavalon/mandoo/lnb_right02_off.png'";

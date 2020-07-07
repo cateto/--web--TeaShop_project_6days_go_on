@@ -39,30 +39,25 @@
 
  
   
-    <div class="site-section bg-light">
-      <div class="container">
+    <div class="site-section bg-white" align="center">
+      <div class="container" align="center">
 
         <div class="row">
 
-            <h2 class="h2 mb-3 text-black font-heading-serif">Welcome! Glad you're here!</h2>
-         
-            	
-            	</br></br></br>
-            	<h2 class="h2 mb-3 text-black font-heading-serif">${member.m_name}님! 환영해요!</h2>
-            	   </br></br>
-            <h4>마음 속에서 시계를 지워내고 맛있는 차와 약간의 음식과 사려 깊은 
-            대화를 즐길 때 함께 마시는 차 덕분에 친밀한 분위기가 무르익는다. / 게일 그레코</h4>	
-            </br><h3>차가 있는 일상의 즐거움과 개인의 취향을 블렌딩해 "${member.m_name}"님께</br>
-가장 감각적이고 소중한 순간의 경험을 선사하고 싶은 , BinTea에 오신 것을 환영해요.</h3>
+             <h1 style="padding-top: 50px; padding-bottom: 50px; float:none; margin:0 auto">&nbsp;&nbsp;&nbsp;${member.m_name}&nbsp;님!</br></h1>
+
+
+
             <div class="p-3 p-lg-5 ">
 		
 		
               </div>
     
               </div>
-             
+             <img src="../images/welcome2.png" style="max-width: 900px; float: none; margin:0 auto; display:flex; align-items:center">
             </div>
           </div>
+         
 <jsp:include page="../etc/footer.jsp"/>
     
         

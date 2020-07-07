@@ -49,12 +49,17 @@ import="java.util.*, domain.Cart"%>
 		var q = document.getElementById("quantity"+i).value;
 		//console.log(q);
 		q++;
+		if(q<1){
+			alert("error"); 
+			return false;
+		}
 		//console.log(q);
-		document.getElementById("quantity"+i).innerTEXT = q;
+		//document.getElementById("quantity"+i).innerTEXT = q;
 
 		var price = document.getElementById("price"+i).innerHTML;
 		result = price*q;
 		document.getElementById("result"+i).innerHTML = result;
+		
 		return result;
 	}
 	
@@ -62,23 +67,56 @@ import="java.util.*, domain.Cart"%>
 		var q = document.getElementById("quantity"+i).value;
 		console.log(q);
 		q--;
+		if(q < 1){
+			alert("error"); 
+			q=1;
+			document.getElementById("quantity"+i).value = q;
+			
+			return false;
+		}
+		
 		console.log(q);
-		document.getElementById("quantity"+i).innerTEXT = q;
+
+		//document.getElementById("quantity"+i).innerTEXT = q;
 		
 		var price = document.getElementById("price"+i).innerHTML;
 		result = price*q;
 		document.getElementById("result"+i).innerHTML = result;
+		
 		return result;
 	}
 	
 	function getTotal(list_size){
 		
 		total = 0
+		var pName = new Array();
+		var pAmount = new Array();
+		var pResult = new Array();
+		
 		for(var i=0;i<list_size;i++){
 			total += parseInt(document.getElementById("result"+i).innerHTML);
 			console.log(total);
+			tempname = "name";
+			tempamount = "amount";
+			tempresult = "result";
+			tempname = document.getElementById("pname"+i).value;
+			tempamount = document.getElementById("quantity"+i).value;
+			tempresult = document.getElementById("result"+i).innerHTML;
+			console.log(tempname);
+			console.log(tempamount);
+			console.log(tempname);
+			pName.push(tempname);
+			pAmount.push(tempamount);
+			pResult.push(tempresult);
+	
 		}
+		
 		document.getElementById("total").innerHTML = total;
+
+		sessionStorage.setItem("OrderTotal", total);
+		sessionStorage.setItem("PNames", pName);
+		sessionStorage.setItem("PAmounts", pAmount);
+		sessionStorage.setItem("PResults", pResult);
 	}     
                     
 </script>       
@@ -131,15 +169,17 @@ import="java.util.*, domain.Cart"%>
                     </td>
                     <td class="product-name">
                       <h2 class="h5 cart-product-title text-black"><%=cart.getP_name()%></h2>
+                      <input type="hidden" id="pname<%=i%>" value="<%=cart.getP_name()%>">
                     </td>
                     <td><span id="price<%=i%>"><%=cart.getP_price()%></span><span>원</span></td>
+                     
                     <td>
                       <div class="input-group mb-4" style="max-width: 120px;">
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button" onclick="minus(<%=i%>); getTotal(<%=cartList.size()%>)">&minus;</button>
                         </div>
-                        <input type="text" id="quantity<%=i%>"class="form-control text-center border mr-0" value="<%=cart.getP_amount() %>" placeholder=""
-                          aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" id="quantity<%=i%>" class="form-control text-center border mr-0" value="<%=cart.getP_amount() %>" placeholder=""
+                          aria-label="Example text with button addon" aria-describedby="button-addon1" min="1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" type="button" onclick="add(<%=i%>); getTotal(<%=cartList.size()%>)">&plus;</button>
                         </div>
@@ -165,7 +205,7 @@ import="java.util.*, domain.Cart"%>
                 </tbody>
               </table>
             </div>
-          </form>
+          
         </div>
     
       </div>
@@ -177,10 +217,10 @@ import="java.util.*, domain.Cart"%>
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-md btn-block">장바구니 새로고침</button>
+                <input type="button" class="btn btn-primary btn-md btn-block" onclick="location.reload()" value="장바구니 새로고침"></button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-md btn-block">계속 쇼핑하기</button>
+                <input type ="button" class="btn btn-outline-primary btn-md btn-block" onclick="location.href='../product/product.do?m=list'" value="계속 쇼핑하기"></button>
               </div>
             </div>
             <div class="row">
@@ -219,12 +259,12 @@ import="java.util.*, domain.Cart"%>
                   </div>
                   <div class="col-md-6 text-right">
                     <strong class="text-black"><span id="total"></span></strong>
+                    
                   </div>
                 </div>
-   
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg btn-block" onclick="window.location='../order/order.do?m=checkout'">구매하러 가기</button>
+                    <input type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='../order/order.do?m=checkout'" value="구매하러 가기"></button>
                   </div>
                 </div>
               </div>

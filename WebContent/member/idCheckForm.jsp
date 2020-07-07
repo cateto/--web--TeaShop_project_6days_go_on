@@ -5,14 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>idCheck</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-	<div style="text-align: center">
-		<h3>* 아이디 중복확인 *</h3>
+	<div style="text-align: center; padding-top:60px">
+		
 		<form method="post" action="idCheckProc.jsp"
 			onsubmit="return blankCheck(this)">
-			아이디 : <input type="text" id="id" name="id" maxlength="10" autofocus>
-			<input type="submit" value="중복확인">
+			아이디  <input type="text" id="id" name="id" maxlength="10" autofocus>
+			<p>
+			</p>
+			<button type="submit" class="btn btn-outline-dark btn-sm">중복 확인</button>
 		</form>
 	</div>
 	<script> 

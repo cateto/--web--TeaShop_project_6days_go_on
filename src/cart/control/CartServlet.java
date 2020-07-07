@@ -33,6 +33,7 @@ public class CartServlet extends HttpServlet {
 				case "PutIntoCart": PutIntoCart(request, response); break;
 				//case "cartList": cartList(request, response); break;
 				case "cleanProduct": cleanProduct(request, response); break;
+				case "cleanAll": cleanAll(request, response); break;
 				
 				default: response.sendRedirect("../index.jsp");
 			}
@@ -76,11 +77,13 @@ public class CartServlet extends HttpServlet {
 		String m_id = null;
 		long p_amount = 1;
 		long p_code = -1L;
+		Boolean flag2 = false;
 		
 		Member loginUser = (Member)session.getAttribute("loginUser");
 		System.out.println(loginUser);
 		if(loginUser !=null) {
 			m_id = loginUser.getM_id();
+			flag2 = true;
 		}
 		
 		String p_amountStr = request.getParameter("p_amount");
@@ -99,9 +102,11 @@ public class CartServlet extends HttpServlet {
 
 		Boolean flag = service.PutIntoCart(m_id, p_amount, p_code);
 		session.setAttribute("cFlag", flag);
+		session.setAttribute("lFlag", flag2);
 		String view = "cart_msg.jsp";
 		response.sendRedirect(view);
 	}
+	
 	private void cleanProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String m_id = null;
@@ -123,6 +128,22 @@ public class CartServlet extends HttpServlet {
 		Boolean cFlag = service.cleanProduct(m_id, p_code);
 		request.setAttribute("cFlag", cFlag);
 		cart(request, response);
+	}	
+	
+	private void cleanAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String m_id = null;
+		
+		Member loginUser = (Member)session.getAttribute("loginUser");
+		
+		if(loginUser !=null) {
+			m_id = loginUser.getM_id();
+		}else {}
+		
+		CartService service = CartService.getInstance();
+		service.cleanCart(m_id);
+		
+		response.sendRedirect("../order/order.do?m=thankyou");
 	}
 	
 	

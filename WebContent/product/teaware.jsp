@@ -135,13 +135,8 @@ body {
                   <span class="icon-star"></span>
                   <span class="icon-star-o"></span>
                 </div>
-                <c:if test="${!empty sessionScope.loginUser}"> 
-                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
-                </c:if>
                 
-                <c:if test="${empty sessionScope.loginUser}"> 
-                <a href="../login/login.do?m=form" class="btn add" onclick='alert("로그인이 필요한 서비스입니다.")'><span class="icon-shopping-bag mr-3"></span>Add to Cart</a>
-                </c:if>
+                <a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="btn add"><span class="icon-shopping-bag mr-3"></span> Add to Cart</a>
               </div>
             </div>
             </div>
@@ -165,12 +160,12 @@ body {
       </div>
     </div>
 
-    <div class="hero-2" style="background-image: url('images/hero_2.jpg');">
+    <div class="hero-2" style="background-image: url('../images/tea_4.jpg');">
      <div class="container">
         <div class="row justify-content-center text-center align-items-center">
           <div class="col-md-8">
-            <span class="sub-title">Welcome</span>
-            <h2>Wines For Everyone</h2>
+            <span class="sub-title">BINTEA</span>
+            <h2>PRODUCT <br/> REVIEW</h2>
           </div>
         </div>
       </div>
@@ -181,24 +176,24 @@ body {
         <div class="owl-carousel owl-slide-3 owl-slide">
         
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Collin Miller</p>
+            <img src="../images/TEAWARE8.png" alt="Image">
+            <p>&ldquo;한옥 '처마'의 곡선에서 모티브를 얻어 제작한 토림도예이다보니 부드러운 곡선을 갖고 있어요... 처마의 곡선은 직선에서 살짝 휘어진 정도여서 어떤 공간에 두어도 분위기를 해치지 않고 잘 어울리는거같아서 너무좋네요!! 강추입니다&rdquo;</p>
+            <p class="small text-primary">&mdash;서○○</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_2.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Harley Perkins</p>
+            <img src="../images/TEAWARE2.png" alt="Image">
+            <p>&ldquo;역시 믿고 사먹는 BINTEASHOP 이네요 ^^ 찰영할때 종종 먹는데 그 맛을 잊을수가 없어 계속 찾게 되네요 &rdquo;</p>
+            <p class="small text-primary">&mdash; 준성맘:hearts:</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_3.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Levi Morris</p>
+            <img src="../images/TEAWARE6.png" alt="Image">
+            <p>&ldquo;한번 떨어트렸는데도 멀쩡해서 더욱 마음에 들었어요 깔별로 모으고 싶어서 그린도 구입했어요 화이트에 손이 더 가네요&rdquo;</p>
+            <p class="small text-primary">&mdash; 조○○</p>
           </blockquote>
           <blockquote class="testimony">
-            <img src="images/person_1.jpg" alt="Image">
-            <p>&ldquo;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero sapiente beatae, nemo quasi quo neque consequatur rem porro reprehenderit, a dignissimos unde ut enim fugiat deleniti quae placeat in cumque?&rdquo;</p>
-            <p class="small text-primary">&mdash; Allie Smith</p>
+            <img src="../images/TEAWARE5.png" alt="Image">
+            <p>&ldquo;사랑스러운 파스텔 컬러와 유려한 라인이 매력적인 티팟으로 내부에 차 거름망이 있어 편리하게 사용할 수 있어서 너무 좋았오요!&rdquo;</p>
+            <p class="small text-primary">&mdash; 방○○</p>
           </blockquote>
         
         </div>

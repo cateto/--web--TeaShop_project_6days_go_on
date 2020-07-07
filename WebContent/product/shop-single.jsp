@@ -81,13 +81,8 @@
               </div>
     
             </div>
-                           
-                 <c:if test="${!empty sessionScope.loginUser}"> 
             <p><a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
-			 </c:if>
-                 <c:if test="${empty sessionScope.loginUser}"> 
-            <p><a href="../login/login.do?m=form" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary" onclick='alert("로그인이 필요한 서비스입니다.")'>Add To Cart</a></p>
-			 </c:if>
+
 
 <%
 		}

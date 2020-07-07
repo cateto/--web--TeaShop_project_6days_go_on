@@ -1,10 +1,14 @@
-<%@page contentType="text/html;charset=utf-8"%>
+<%@page contentType="text/html;charset=utf-8"
+import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 <jsp:include page="../etc/frame-ver2.jsp"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>BinTea &mdash; BinTea is New Wave</title>
+  <title>BINTEA &mdash; Enjoy your Tea</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -30,71 +34,117 @@
 
   <link rel="stylesheet" href="../css/style.css">
 
-	<!-- 위에까지는 템플릿 -->
-    
-<style>
-
-@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
-</style>
-	<!-- 추가한 부분 (로그인 확인 js)-->
 
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" onload="document.f.id.focus()">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
   <div class="site-wrap">
+    
 
-
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row" >
-			
-          <div class="col-lg-12">
-            <div class="section-title mb-5">
-              <h1 style="font-family: 'Jeju Myeongjo', serif;">ID 찾기</h1>
-            </div>
-  
+    <div class="hero-2" style="background-image: url('../images/tea_2.jpg');">
+     <div class="container">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <span class="sub-title">BINTEA</span>
+            <h2>ORDERS</h2>
           </div>
-          <div class="search-div">
-
-		<form action="member.do?m=foundID" method="post">
-
-			  <div class="row">
-                <div class="col-md-12 form-group">
-                   <label for="name">이름</label>
-                         
-                     <input class="form-control form-control-lg" name="name" size="20" align="center">
-               </div>
-             </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                   <label for="birth">생년월일</label>
-                     <input class="form-control form-control-lg" type="text" class="form-control" id="birth" align="center" size="20" name="birth" placeholder="ex) 1990-03-13" data-provide="datepicker" data-date-format="yyyy-mm-dd">
-                </div>
-             </div>
-			
-                <br/> <br/>
-                      <div class="col-12">
-                          <input type="submit" value="find" class="btn btn-primary py-3 px-5">
-                      </div>
-                  
-		</form>
-		</div>
-
-
-</div>
-          
         </div>
-
-        
       </div>
     </div>
 
-  
+    <div class="site-section bg-light">
+      <div class="container">
+       
+        <div class="row">
 
-<jsp:include page="../etc/footer.jsp"/>
+          <div class="col-lg-12">
+            <div class="section-title mb-5">
+              <h2>주문 내역</h2>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+   <article>
+<div class="container">
+
+<div class="table-responsive">
+
+<table class="table table-striped">
+
+		<colgroup>
+
+			<col style="width:auto;" />
+
+			<col style="width:auto;" />
+
+			<col style="width:auto;" />
+
+			<col style="width:auto;" />
+
+			<col style="width:auto;" />
+
+		</colgroup>
+
+		<thead>
+
+			<tr align='center'>
+				<th>날짜<br/>[주문번호]</th>
+
+				<th>상품 정보</th>
+
+				<th>수량</th>
+
+				<th>결제 금액</th>
+				
+				<th>주문 상태</th>
+			</tr>
+
+		</thead>
+		<tbody>
+
+			<c:if test = "${empty UserOrders}">
+		<tr>
+			<td align='center' colspan="6" >데이터가 없음</td>
+		</tr>
+	</c:if>
+	<c:forEach items="${UserOrders}" var ="order">
+            <tr>
+            <td align='center'>${order.b_date}<br/>[1234${order.o_seq}]</td>
+            <td align='center'>${order.p_name} ...</td>
+            <td align='center'>${order.o_amount}</td>
+            <td align='center'>${order.o_total}</td>
+            <td align='center'>입금 대기중</td>
+            </tr>
+	</c:forEach>
+		</tbody>
+	</table>
+
+
+
+
+</div>
+	</div>
+</article>            
+            
+            </div>
+           
+
+            
+<!-- 수정 시작 -->
+
+
+
+
+
+
+
+
+	
+
     
-
+<jsp:include page="../etc/footer.jsp"/>
   </div>
   <!-- .site-wrap -->
 
