@@ -69,16 +69,7 @@
             <p><%=product.getP_story()%></p>
 
             <div class="mb-5">
-              <div class="input-group mb-3" style="max-width: 200px;">
-                <div class="input-group-prepend">
-                  <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                </div>
-                <input type="text" class="form-control text-center border mr-0" value="1" placeholder=""
-                  aria-label="Example text with button addon" aria-describedby="button-addon1">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                </div>
-              </div>
+
     
             </div>
             <p><a href="../cart/cart.do?m=PutIntoCart&p_code=<%=product.getP_code()%>" class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
@@ -136,10 +127,6 @@
 </div>
       
 
-
-  
-
-    
    
  <jsp:include page="../etc/footer.jsp"/>   
 

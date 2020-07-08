@@ -81,7 +81,7 @@ body {
 
 					<label for="title">제목</label>
 
-					<input type="text" class="form-control" name="title" id="title" value="${board.b_subject}">
+					<input type="text" class="form-control" name="title" id="title" value="${board.b_subject}" required>
 
 				</div>
 
@@ -101,7 +101,7 @@ body {
 
 					<label for="content">내용</label>
 
-					<textarea class="form-control" rows="5" name="content" id="content">${board.b_content}</textarea>
+					<textarea class="form-control" rows="5" name="content" id="content" required>${board.b_content}</textarea>
 
 				</div>
 
@@ -117,7 +117,7 @@ body {
 
 			<div >
 				<c:if test="${!empty sessionScope.Admin}">
-				<input type="submit" class="btn btn-sm btn-primary" id="btnSave" value ="저장">
+				<input type="submit" class="btn btn-sm btn-primary" value ="저장">
 				
 				
 				</c:if>

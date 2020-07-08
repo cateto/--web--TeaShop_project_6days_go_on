@@ -264,7 +264,7 @@ import="java.util.*, domain.Cart"%>
                 </div>
                 <div class="row">
                   <div class="col-md-12">
-                    <input type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='../order/order.do?m=checkout'" value="구매하러 가기"></button>
+                    <input type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='../order/order.do?m=checkout'; getTotal(<%=cartList.size()%>);" value="구매하러 가기"></button>
                   </div>
                 </div>
               </div>

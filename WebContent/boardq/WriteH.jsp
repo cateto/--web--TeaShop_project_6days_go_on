@@ -126,7 +126,7 @@ body {
 
 					<label for="subject">제목</label>
 
-					<input type="text" class="form-control" name="subject" id="subject" placeholder="제목을 입력해 주세요">
+					<input type="text" class="form-control" name="subject" id="subject" placeholder="제목을 입력해 주세요" required>
 
 				</div>
 
@@ -136,7 +136,7 @@ body {
 
 					<label for="writer">작성자</label>
 
-					<input type="text" class="form-control" name="writer" id="writer" placeholder="이름을 입력해 주세요">
+					<input readOnly type="text" class="form-control" name="writer" id="writer" value="${loginUser.m_name}">
 
 				</div>
 
@@ -146,7 +146,7 @@ body {
 
 					<label for="content">내용</label>
 
-					<textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea>
+					<textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" required ></textarea>
 
 				</div>
 				

@@ -111,8 +111,8 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 	</c:if>
 	<c:forEach items="${UserOrders}" var ="order">
             <tr>
-            <td align='center'>${order.b_date}<br/>[1234${order.o_seq}]</td>
-            <td align='center'>${order.p_name} ...</td>
+            <td align='center'>${order.b_date}<br/>[${order.b_date}${order.o_seq}]</td>
+            <td align='center'>${order.p_name} 외 ${order.o_amount-1}개</td>
             <td align='center'>${order.o_amount}</td>
             <td align='center'>${order.o_total}</td>
             <td align='center'>입금 대기중</td>

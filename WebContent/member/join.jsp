@@ -1,39 +1,43 @@
 <%@page contentType="text/html;charset=utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../etc/frame-ver2.jsp"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="../etc/frame-ver2.jsp" />
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>BinTea &mdash; Enjoy Your Tea</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>BinTea &mdash; Enjoy Your Tea</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  
-  <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../fonts/icomoon/style.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Montserrat:400,700|Roboto&display=swap"
+	rel="stylesheet">
 
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/jquery-ui.css">
-  <link rel="stylesheet" href="../css/owl.carousel.min.css">
-  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+<link rel="stylesheet" href="../fonts/icomoon/style.css">
 
-  <link rel="stylesheet" href="../css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/owl.carousel.min.css">
+<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+<link rel="stylesheet" href="../css/owl.theme.default.min.css">
 
-  <link rel="stylesheet" href="../css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="../css/jquery.fancybox.min.css">
 
-  <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="../css/bootstrap-datepicker.css">
 
-  <link rel="stylesheet" href="../css/aos.css">
-  <link href="../css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
 
-  <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/aos.css">
+<link href="../css/jquery.mb.YTPlayer.min.css" media="all"
+	rel="stylesheet" type="text/css">
 
-	<!-- 위에까지는 템플릿 -->
-	<script src="../js/trim.js"></script>
-	<script language="javascript"> 
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- 위에까지는 템플릿 -->
+<script src="../js/trim.js"></script>
+<script language="javascript"> 
 	function check(){
 		var idval = f.id.value;
 		idval = trim(idval);
@@ -173,9 +177,10 @@
 	}
 
 	</script>
-	<!-- 추가한 부분 (로그인 확인 js)-->
-	<!-- 카카오맵 도로명주소 api -->
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<!-- 추가한 부분 (로그인 확인 js)-->
+<!-- 카카오맵 도로명주소 api -->
+<script
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	
 	function readOnly() {
@@ -232,133 +237,157 @@
         }).open();
     }
 </script>
-	<!-- 화이팅 -->
+<!-- 화이팅 -->
 
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<body data-spy="scroll" data-target=".site-navbar-target"
+	data-offset="300">
 
-  <div class="site-wrap">
-
-
-    <div class="site-section bg-light">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black font-heading-serif">JOIN</h2>
-            <div class="p-3 p-lg-5 ">
-		
-		 <form name="f" action="member.do?m=join" method="post">
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <label for="id" class="text-black">아이디<span class="text-danger">*</span></label>
-                  <input readOnly class="form-control"  id="id" name="id" placeholder="영어 소문자/숫자 10자이내">
-                       
-                  </div>
-              </div>
-               <div class="form-group">
-                <input type="button" value="ID 중복확인" onclick="idCheck()">
-              </div> 
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <label for="pwd" class="text-black">비밀번호 <span class="text-danger">*</span></label>
-                  <input class="form-control" id="pwd" name="pwd" type="password" placeholder="영어,숫자,특수문자(<, >, (, ), #, ', /, | 제외) 10자이내">
-                </div>
-               </div>
-               <div class="form-group row">
-                <div class="col-md-12">
-                  <label for="pwdcheck" class="text-black">비밀번호 확인 <span class="text-danger">*</span></label>
-                  <input class="form-control" id="pwdcheck" name="pwdcheck" type="password">
-                </div>
-              </div>
-              
-              <div class="form-group row">
-                <div class="col-md-6">
-                  <label for="c_state_country" class="text-black">이름 <span class="text-danger">*</span></label>
-                  <input class="form-control" id="name" name="name">
-                </div>
-                <div class="col-md-6">
-                  <label for="c_postal_zip" class="text-black">생년월일 <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="birth" name="birth" placeholder="ex) 1990-03-13" data-provide="datepicker" data-date-format="yyyy-mm-dd">
-                </div>
-              </div>
-    
-              <div class="form-group row mb-5">
-                <div class="col-md-6">
-                  <label for="c_email_address" class="text-black">이메일</label>
-                  <input type="text" class="form-control"  name="email" placeholder="ex) mail@email.com">
-                </div>
-                <div class="col-md-6">
-                  <label for="c_phone" class="text-black">전화번호 </label>
-                  <input type="text" class="form-control" name="phone" placeholder="ex) 010-1234-5678">
-                </div>
-              </div>
-             
-          
-           	 <div class="form-group row">
-                <div class="col-md-12">
-                  <label for="c_address" class="text-black">주소 <span class="text-danger">*</span></label>
-                  
-                                <div class="form-group">
-                <input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="우편번호" onclick="Postcode()">
-              </div>     
-                  
-                  <input readOnly type="text" class="form-control" id="addr" name="addr"  placeholder="도로명주소">
-                </div>
-              </div>
-    
-              <div class="form-group">
-                <input readOnly type="text" class="form-control" id="addr2" name="addr2" placeholder="상세주소">
-              </div>   
-              
-              <div class="form-group row">
-                      <div class="col-md-12">
-                          <input type="button" value="Join" class="btn btn-primary py-3 px-5" onkeydown="check()" onclick="check()">
-                      </div>
-                  </div> 
-                  
-                  </form>           
-              </div>
-    
-             
-
-                </div>
-              </div>
-             
-            </div>
-          </div>
-<jsp:include page="../etc/footer.jsp"/>
-    
-        
-      </div>
-
-   
-  <!-- .site-wrap -->
+	<div class="site-wrap">
 
 
-  <!-- loader -->
-  <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15"/></svg></div>
+		<div class="site-section bg-light">
+			<div class="container">
 
-  <script src="../js/jquery-3.3.1.min.js"></script>
-  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="../js/jquery-ui.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/owl.carousel.min.js"></script>
-  <script src="../js/jquery.stellar.min.js"></script>
-  <script src="../js/jquery.countdown.min.js"></script>
-  <script src="../js/bootstrap-datepicker.min.js"></script>
-  <script src="../js/jquery.easing.1.3.js"></script>
-  <script src="../js/aos.js"></script>
-  <script src="../js/jquery.fancybox.min.js"></script>
-  <script src="../js/jquery.sticky.js"></script>
-  <script src="../js/jquery.mb.YTPlayer.min.js"></script>
+				<div class="row">
+					<div class="col-md-6 mb-5 mb-md-0">
+						<h2 class="h3 mb-3 text-black font-heading-serif">JOIN</h2>
+						<div class="p-3 p-lg-5 ">
+
+							<form name="f" action="member.do?m=join" method="post">
+								<div class="form-group row">
+									<div class="col-md-12">
+										<label for="id" class="text-black">아이디<span
+											class="text-danger">*</span></label> <input readOnly
+											class="form-control" id="id" name="id"
+											placeholder="영어 소문자/숫자 10자이내">
+
+									</div>
+								</div>
+								<div class="form-group">
+									<input type="button" value="ID 중복확인" onclick="idCheck()">
+								</div>
+								<div class="form-group row">
+									<div class="col-md-12">
+										<label for="pwd" class="text-black">비밀번호 <span
+											class="text-danger">*</span></label> <input class="form-control"
+											id="pwd" name="pwd" type="password"
+											placeholder="영어,숫자,특수문자(<, >, (, ), #, ', /, | 제외) 10자이내">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-12">
+										<label for="pwdcheck" class="text-black">비밀번호 확인 <span
+											class="text-danger">*</span></label> <input class="form-control"
+											id="pwdcheck" name="pwdcheck" type="password">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-md-6">
+										<label for="c_state_country" class="text-black">이름 <span
+											class="text-danger">*</span></label> <input class="form-control"
+											id="name" name="name">
+									</div>
+									<div class="col-md-6">
+										<label for="c_postal_zip" class="text-black">생년월일 <span
+											class="text-danger">*</span></label> <input type="text"
+											class="form-control" id="birth" name="birth"
+											placeholder="ex) 1990-03-13" data-provide="datepicker"
+											data-date-format="yyyy-mm-dd">
+									</div>
+								</div>
+
+								<div class="form-group row mb-5">
+									<div class="col-md-6">
+										<label for="c_email_address" class="text-black">이메일</label> <input
+											type="text" class="form-control" name="email"
+											placeholder="ex) mail@email.com">
+									</div>
+									<div class="col-md-6">
+										<label for="c_phone" class="text-black">전화번호 </label> <input
+											type="text" class="form-control" name="phone"
+											placeholder="ex) 010-1234-5678">
+									</div>
+								</div>
+
+
+								<div class="form-group row">
+									<div class="col-md-12">
+										<label for="c_address" class="text-black">주소 <span
+											class="text-danger">*</span></label>
+
+										<div class="form-group">
+											<input type="text" class="form-control" id="postalcode"
+												name="postalcode" placeholder="우편번호" onclick="Postcode()">
+										</div>
+
+										<input readOnly type="text" class="form-control" id="addr"
+											name="addr" placeholder="도로명주소">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<input readOnly type="text" class="form-control" id="addr2"
+										name="addr2" placeholder="상세주소">
+								</div>
+
+								<div class="form-group row">
+									<div class="col-md-12">
+										<input type="button" value="Join"
+											class="btn btn-primary py-3 px-5" onkeydown="check()"
+											onclick="check()">
+									</div>
+								</div>
+
+							</form>
+						</div>
 
 
 
+					</div>
+				</div>
 
-  <script src="../js/main.js"></script>
+			</div>
+		</div>
+		<jsp:include page="../etc/footer.jsp" />
+
+
+	</div>
+
+
+	<!-- .site-wrap -->
+
+
+	<!-- loader -->
+	<div id="loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#ff5e15" /></svg>
+	</div>
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/owl.carousel.min.js"></script>
+	<script src="../js/jquery.stellar.min.js"></script>
+	<script src="../js/jquery.countdown.min.js"></script>
+	<script src="../js/bootstrap-datepicker.min.js"></script>
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="../js/aos.js"></script>
+	<script src="../js/jquery.fancybox.min.js"></script>
+	<script src="../js/jquery.sticky.js"></script>
+	<script src="../js/jquery.mb.YTPlayer.min.js"></script>
+
+
+
+
+	<script src="../js/main.js"></script>
 
 </body>
 

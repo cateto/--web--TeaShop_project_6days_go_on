@@ -3,7 +3,6 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 <jsp:include page="../etc/frame-ver2.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,7 +124,7 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 
 			<c:if test = "${empty listResult.list}">
 		<tr>
-			<td align='center' colspan="5" >데이터가 없음</td>
+			<td align='center' colspan="5" >아직 작성된 글이 없습니다.</td>
 		</tr>
 	</c:if>
 	<c:forEach items="${listResult.list}" var ="boardq">
@@ -141,8 +140,10 @@ import="java.util.*, domain.BoardQ, boardQ.vo.ListResult"%>
 </c:forEach>
 		</tbody>
 	</table>
-
+ <c:if test="${!empty sessionScope.loginUser}"> 
 			<a href='boardq.do?m=writeH'><input type="button" class="btn btn-primary float-right" id="btnWriteForm" value="글쓰기"></a>
+</c:if>
+
 <font color='gray' size='3' face='나눔고딕'>
     <!-- (총페이지수 : ${listResult.totalPageCount}) -->
     &nbsp;&nbsp;&nbsp;

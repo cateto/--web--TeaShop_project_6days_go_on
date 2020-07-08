@@ -12,6 +12,20 @@
 <!-- jQuery -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/jquery-ui.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/jquery.countdown.min.js"></script>
+  <script src="../js/bootstrap-datepicker.min.js"></script>
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../js/aos.js"></script>
+  <script src="../js/jquery.fancybox.min.js"></script>
+  <script src="../js/jquery.sticky.js"></script>
+  <script src="../js/jquery.mb.YTPlayer.min.js"></script>
 
 
 
@@ -67,7 +81,7 @@ body {
 
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 	<article>
 
@@ -81,7 +95,7 @@ body {
 
 					<label for="title">제목</label>
 
-					<input type="text" class="form-control" name="title" id="title">
+					<input type="text" class="form-control" name="title" id="title"  required>
 
 				</div>
 
@@ -91,7 +105,7 @@ body {
 
 					<label for="reg_id">작성자</label>
 
-					<input readOnly type="text" class="form-control" name="reg_id" id="reg_id" value="관리자">
+					<input readOnly type="text" class="form-control" name="reg_id" id="reg_id" value="관리자" >
 
 				</div>
 
@@ -101,7 +115,7 @@ body {
 
 					<label for="content">내용</label>
 
-					<textarea class="form-control" rows="5" name="content" id="content"></textarea>
+					<textarea class="form-control" rows="5" name="content" id="content" required></textarea>
 
 				</div>
 
@@ -117,7 +131,10 @@ body {
 
 			<div >
 				<c:if test="${!empty sessionScope.Admin}">
-				<input type="submit" class="btn btn-sm btn-primary" id="btnSave" value ="저장">
+				<!-- 
+				<input type="button" class="btn btn-sm btn-primary" value ="저장" onclick="check()">
+				 -->
+				<input type="submit" class="btn btn-sm btn-primary" value="저장" >
 				
 				
 				</c:if>
@@ -133,6 +150,22 @@ body {
 		</div>
 
 	</article>
+	
+	<script>
+	    function check(){
+	    	if(form.title.value == ""){
+	    		alert("제목이 비었어요");
+	    		form.title.focus();
+	    		return false;
+	    	}else if(form.content.value == ""){
+		    	alert("내용이 비었어요");
+		    	form.content.focus();
+		    	return false;
+	    	}else{
+		        form.submit();
+	        }
+	    }
+	</script>
 
 </body>
 

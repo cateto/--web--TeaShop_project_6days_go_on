@@ -18,6 +18,7 @@
       <div class="field col-md-6 col-md-offset-3">
       		
       	<c:if test="${!empty loginUser}">
+      		<span>${loginUser.m_name}님 접속중</span>&nbsp;&nbsp;
       		<a href="login/login.do?m=out"><button type="button" class="btn btn-light btn-sm">LOGOUT</button></a>
         </c:if>
            

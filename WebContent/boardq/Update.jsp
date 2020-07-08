@@ -142,7 +142,7 @@ body {
 
 					<label for="subject">제목</label>
 
-					<input type="text" class="form-control" name="subject" id="subject" value="<%=boardq.getSubject()%>">
+					<input type="text" class="form-control" name="subject" id="subject" value="<%=boardq.getSubject()%>" required>
 
 				</div>
 
@@ -152,7 +152,7 @@ body {
 
 					<label for="writer">작성자</label>
 
-					<input type="text" class="form-control" name="writer" id="writer" value="<%=boardq.getWriter()%>">
+					<input readOnly type="text" class="form-control" name="writer" id="writer" value="${loginUser.m_name}">
 
 				</div>
 
@@ -162,7 +162,7 @@ body {
 
 					<label for="content">내용</label>
 
-					<textarea class="form-control" rows="5" name="content" id="content"><%=boardq.getContent()%></textarea>
+					<textarea class="form-control" rows="5" name="content" id="content" required><%=boardq.getContent()%></textarea>
 
 				</div>
 				
